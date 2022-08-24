@@ -6,8 +6,8 @@ export class TxtPreview extends React.Component {
         const { title , txt  } = this.props.note.info
         console.log( title , txt)
         return <div className="text-preview">                
-                {(title)&& <h1>{title}</h1>}
-                {(txt)&& <p>{txt}</p>}
+                {(title)&& <h1 className="preview-title" >{title}</h1>}
+                {(txt)&& <p className="preview-text">{txt}</p>}
 
         </div>
 
