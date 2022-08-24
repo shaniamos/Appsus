@@ -4,9 +4,7 @@ const { Link } = ReactRouterDOM
 export class NoteList extends React.Component {
 
     render() {
-        console.log(this.props)
         const { notes } = this.props
-   
         return <section className="note-list">
             <ul>
                 {
