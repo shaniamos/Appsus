@@ -1,19 +1,18 @@
-import { MailPreview } from './mail-preview.jsx'
+import { MailPreview } from "./mail-preview"
+
 
 const { Link } = ReactRouterDOM
 
-export function MailList({ mails, onRemoveMail }) {
+export function MailList({ mails }) {
 
-    return <section className="book-list">
+    return <ul className="main-list ">
         Hello from mail list
-        {/* <ul>
-            {books.map(book =>
-                <li className="book-preview" key={book.id}>
-                    <BookPreview book={book} />
-                    <Link to={`/book/${book.id}`}> Details </Link>
-                    <button onClick={() => onRemoveBook(book.id)}>X</button>
-                </li>
-            )}
-        </ul> */}
-    </section>
+
+        {/* {mails.map(mail => {
+            <li key={mail.id}>
+                <MailPreview mail={mail}/>
+            </li>
+        })} */}
+        
+    </ul>
 }
