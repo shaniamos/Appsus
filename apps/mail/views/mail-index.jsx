@@ -3,7 +3,6 @@ import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailDetails } from "./mail-details.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { MailPreview } from "../cmps/mail-preview.jsx"
-import { MailApp } from "./mail-app.jsx"
 
 const Router = ReactRouterDOM.HashRouter
 const { Route, Switch, NavLink } = ReactRouterDOM

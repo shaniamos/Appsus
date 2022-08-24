@@ -1,23 +1,46 @@
+import { NoteList } from "../cmps/note-list.jsx"
+import { NoteService } from "../services/note.service.js"
 
 const Router = ReactRouterDOM.HashRouter
-const { Route, Switch, NavLink } = ReactRouterDOM
+const { Route, Switch, NavLink, Link } = ReactRouterDOM
 
 export class NoteIndex extends React.Component {
+
+    state = {
+        notes: [],
+        filterBy: null,
+    }
+
+    componentDidMount() {
+        this.loadNotes()
+    }
+
+    loadNotes = () => {
+        console.log('Hi')
+        NoteService.query(this.state.filterBy)
+            .then(notes => this.setState({ notes }))
+    }
+
+    onSetFilter = (filterBy) => {
+        this.setState({ filterBy }, this.loadNotes)
+        // showSuccessMsg('Filtered Notes')
+    }
+
+
     render() {
-        return <Router>
-            <section className="mail-index main-layout">
-                Hello from note-index
-                {/* <nav>
-                    <input type="text" name="" id="" />
-                    <NavLink exact to="/mail/inbox">Inbox</NavLink>
-                    <NavLink to="/mail/starred">Starred - filter</NavLink>
-                    <NavLink to="/mail/sent">Sent Mail</NavLink>
-                    <NavLink to="/mail/drafts">Draft</NavLink>
-                </nav>
-                <Switch>
-                    <Route path="/mail" component={MailList} />
-                </Switch> */}
-            </section>
-        </Router>
+        const { notes } = this.state
+        return <section className="note-index main-layout">
+            Hello from note-index
+            <div className="note-side-nav flex column">
+                <a className="notes" href="">Notes</a>
+                <a className="notes" href="">Reminder</a>
+                <a className="notes" href="">Edit labels</a>
+                <a className="notes" href="">Archive</a>
+                <a className="notes" href="">Bin</a>
+            </div>
+
+            <NoteList notes={notes} />
+        </section>
+
     }
 }
