@@ -1,11 +1,15 @@
 
 
 export function AsideBar(props) {
-    return <nav>
-            <h1>main Nav</h1>
+    return <nav className="aside-bar">
+        <div className="aside-bar-content flex column space-evenely">
+
+        </div>
+
+        
 
 
     </nav>
 
-    
+
 }

@@ -1,0 +1,7 @@
+.mail-list {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 95%;
+}
+
+
