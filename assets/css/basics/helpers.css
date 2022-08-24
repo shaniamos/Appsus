@@ -18,6 +18,18 @@
     justify-content: space-between;
 }
 
+.space-evenly {
+    justify-content: space-evenly;
+}
+
 .grid {
     display: grid;
+}
+
+/* list-helpers */
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
