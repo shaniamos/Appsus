@@ -1,0 +1,20 @@
+.note-preview {
+    list-style: none;
+    border: 1px solid;
+    width: 240px;
+    margin: 16px;
+    border-radius: 8px;
+
+    /* Inner Object */
+    border: 1px solid #e0e0e0 ;
+    color: #202124;
+    font-size: 15px;
+    /* "Roboto",arial,sans-serif */
+    font-family: arial,sans-serif;
+    overflow: hidden;
+
+}
+
+.note-preview:hover{
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302);
+}

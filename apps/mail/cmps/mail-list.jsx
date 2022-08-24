@@ -1,4 +1,4 @@
-import { MailPreview } from "./mail-preview"
+import { MailPreview } from "../cmps/mail-preview.jsx"
 
 
 const { Link } = ReactRouterDOM

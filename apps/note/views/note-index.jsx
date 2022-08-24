@@ -16,7 +16,6 @@ export class NoteIndex extends React.Component {
     }
 
     loadNotes = () => {
-        console.log('Hi')
         NoteService.query(this.state.filterBy)
             .then(notes => this.setState({ notes }))
     }

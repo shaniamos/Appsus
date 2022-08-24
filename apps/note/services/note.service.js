@@ -30,7 +30,6 @@ function query(filterBy) {
             note.speed <= maxSpeed
         ))
     }
-    console.log(notes)
     return Promise.resolve(notes)
 }
 
@@ -81,7 +80,16 @@ function _createNotes() {
                     { txt: "Coding power", doneAt: 187111111 }
                 ]
             }
-        }
+        },
+        {
+            id: "n104",
+            type: "note-txt",
+            isPinned: true,
+            info: {
+                title: "Titelooo",
+                txt: "Fullstack Me Baby!"
+            }
+        },
     ]
     // const notes = []
     // for (let i = 0; i < 20; i++) {
