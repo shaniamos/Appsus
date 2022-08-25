@@ -1,18 +1,12 @@
 import { storageService } from '../../../services/storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
+const KEY = 'notesDB'
 export const NoteService = {
     query,
     save,
     remove,
     getById,
-}
-
-const KEY = 'notesDB'
-
-function save(note) {
-    if (note.id) return _update(note)
-    else return _add(note)
 }
 
 function query(filterBy) {
@@ -21,7 +15,7 @@ function query(filterBy) {
         notes = _createNotes()
         _saveToStorage(notes)
     }
-
+    
     if (filterBy) {
         let { vendor, minSpeed, maxSpeed } = filterBy
         if (!minSpeed) minSpeed = 0;
@@ -30,7 +24,7 @@ function query(filterBy) {
             note.vendor.includes(vendor) &&
             note.speed >= minSpeed &&
             note.speed <= maxSpeed
-        ))
+            ))
     }
     return Promise.resolve(notes)
 }
@@ -69,7 +63,6 @@ function _add({ type, isPinned, info }) {
     _saveToStorage(notes)
     return Promise.resolve(note)
 }
-
 
 function _createNotes() {
     const notes = [

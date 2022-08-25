@@ -19,8 +19,7 @@ export class NoteEdit extends React.Component {
     }
 
     loadNote = () => {
-        // const { noteId } = this.props.match.params
-        const { noteId } = {}
+        const { noteId } = this.props.match.params
         if (!noteId) return
         NoteService.getById(noteId).then(note => this.setState({ note }))
     }
@@ -42,7 +41,6 @@ export class NoteEdit extends React.Component {
         NoteService.save(this.state.note)
             .then(() => {
                 console.log(this.props)
-                // this.props.history.push('/note')
                 this.setState(() => ({
                     note: {
                         id: "",
@@ -52,9 +50,10 @@ export class NoteEdit extends React.Component {
                             title: "",
                             txt: "",
                         }
-                    } 
+                    }
                 }))
                 this.props.loadNotes()
+                this.props.history.push('/note')
             })
     }
 
@@ -63,8 +62,9 @@ export class NoteEdit extends React.Component {
         console.log(this.props)
         const { title, txt } = this.state.note.info
         const { onSaveNote, handleChange } = this
-        return <div className="text-note-create flex column">
-            <form className="flex column" onSubmit={onSaveNote}>
+        return <div className="edit-note-modal flex column">
+
+            <form className="flex column" onSubmit={onSaveNote} id="save-note">
                 <input className="title-input" type="text" name="title"
                     value={title} id="title"
                     placeholder="Title"
@@ -74,11 +74,9 @@ export class NoteEdit extends React.Component {
                     value={txt} id="txt" cols="5"
                     placeholder="Take a note..."
                     onChange={handleChange} />
-                <button className="btn-create-image" data-tooltip-text="Save" tabIndex="1">
-                    Save
-                </button>
             </form>
-            <div className="create-toolbar">
+
+            <div className="edit-toolbar">
                 <button className="btn-create-list" data-tooltip-text="NewList" tabIndex="1">
                     <i className="fa-regular fa-square-check"></i>
                 </button>
@@ -87,6 +85,9 @@ export class NoteEdit extends React.Component {
                 </button>
                 <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
                     <i className="fa-regular fa-image"></i>
+                </button>
+                <button className="btn-save" data-tooltip-text="Save" tabIndex="1" form="save-note">
+                    Save
                 </button>
             </div>
         </div>

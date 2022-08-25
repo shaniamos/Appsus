@@ -1,5 +1,5 @@
 
-export function PreviewToolbar({ noteId, onRemoveNote }) {
+export function PreviewToolbar({ noteId, onRemoveNote, }) {
 
     return <div className="preview-toolbar" role="toolbar" key={noteId}>
         {/* RemindMe */}
@@ -27,7 +27,9 @@ export function PreviewToolbar({ noteId, onRemoveNote }) {
             <i className="fa-solid fa-ellipsis-vertical"></i>
         </button>
         {/* Delete */}
-        <button className="" data-tooltip-text="DeleteNote" tabIndex="1" onClick={() => onRemoveNote(noteId)}>
+        <button className="" data-tooltip-text="DeleteNote" tabIndex="1" onClick={(event) => {
+            onRemoveNote(event, noteId)
+        }}>
             <i className="fa-solid fa-trash-can"></i>
         </button>
     </div>

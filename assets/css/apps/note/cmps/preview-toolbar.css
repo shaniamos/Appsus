@@ -1,0 +1,13 @@
+.preview-toolbar>* {
+    border: none;
+    background-color: transparent;
+    height: 31px;
+    width: 32px;
+    margin: 0 3px;
+    border-radius: 50%;
+}
+
+.preview-toolbar>*:hover {
+    opacity: 0.87;
+    background-color: rgba(95, 99, 104, 0.157);
+}

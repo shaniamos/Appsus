@@ -1,0 +1,6 @@
+.todos-list .done {
+    font-style: italic;
+    text-decoration: line-through;
+    /* display: flex; */
+    flex-direction: column;
+}

@@ -1,0 +1,15 @@
+.btns-create>* {
+    border: none;
+    background-color: transparent;
+    background-size: 24px 24px;
+    font-size: 15px;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    opacity: 0.54;
+}
+
+.btns-create>*:hover {
+    opacity: 0.87;
+    background-color: rgba(95, 99, 104, 0.157);
+}
