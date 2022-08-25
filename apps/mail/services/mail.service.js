@@ -8,6 +8,8 @@ const KEY = 'EmailsDB'
 export const mailService = {
     query,
     deleteMail,
+    getMailById,
+    changeStarColor,
 }
 
 var gMails = [
@@ -20,7 +22,7 @@ var gMails = [
     { id: utilService.makeId(), subject: 'lets play', body: 'i love this game', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'yes we are good', body: 'we did it perfect', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'see you tonight', body: 'we will meet in tel aviv', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
-    { id: utilService.makeId(), subject: 'yes, we can', body: 'That what Obama said', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
+    { id: utilService.makeId(), subject: 'yes, we can', body: 'That what Obama said', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: true, type: 'sent' },
 ]
 
 function query() {
@@ -39,6 +41,22 @@ function deleteMail(mailId){
     eMails.splice(mailIndex,1)
     _saveToStorage(eMails)
     return Promise.resolve()
+}
+
+function getMailById(mailId) {
+    if(!mailId) return Promise.resolve(null)
+    let eMails = _loadFromStorage()
+    const mail = eMails.find(mail => mail.id === mailId)
+    return Promise.resolve(mail)
+}
+
+function changeStarColor(mailId){
+    if(!mailId) return Promise.resolve(null)
+    let eMails = _loadFromStorage()
+    const mailIdex = eMails.findIndex(mail => mail.id === mailId)
+    console.log(mailIdex);
+    eMails[mailIdex].isStarred = !eMails[mailIdex].isStarred
+    console.log(eMails[mailIdex].isStarred);
 }
 
 function _saveToStorage(eMails) {

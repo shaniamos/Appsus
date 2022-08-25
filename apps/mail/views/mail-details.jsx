@@ -13,16 +13,20 @@ export class MailDetails extends React.Component {
     }
 
     loadMail = () => {
-        const { mail } = this.state
-        const { mailId } = this.props.match.params
+        const mailId = this.props.match.params.mailId;
+        mailService.getMailById(mailId)
+            .then(mail => this.setState({ mail }))
     }
 
 
     render() {
+        const mail = this.state.mail
+        console.log(mail);
 
         return <section>
-
-            <h1>hey</h1>
+            <SideBar />
+            
+            
         </section>
     }
 

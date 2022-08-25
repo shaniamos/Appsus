@@ -46,10 +46,16 @@ export class MailIndex extends React.Component {
             })
     }
 
+    changeIsStarred = (mailId) => {
+        console.log('mailId', mailId);
+        mailService.changeStarColor(mailId)
+         this.loadMails()
+    }
+
 
     
     render() {
-        const { onDeleteMail } = this
+        const { onDeleteMail, changeIsStarred } = this
         const {mails} = this.state
         // console.log('mails', mails)
 
@@ -58,7 +64,7 @@ export class MailIndex extends React.Component {
             <SideBar />
             <div className="mails-container">
                 <MailFilter onSetFilter={this.onSetFilter} />
-                <MailList mails={mails} onDeleteMail={onDeleteMail} />
+                <MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} />
             </div>
 
 
