@@ -14,6 +14,7 @@ export class MailIndex extends React.Component {
         mails: [],
         filterByName: '',
         filterRatio: '',
+        isComposeShown: false,
 
     }
 
@@ -35,6 +36,14 @@ export class MailIndex extends React.Component {
         }
     }
 
+    openCompose = () => {
+        this.setState({ isComposeShown: true })
+    }
+
+    closeCompose = () => {
+        this.setState({ isComposeShown: false })
+    }
+
 
     onDeleteMail = (mailId) => {
         // console.log('mailId', mailId);
@@ -49,19 +58,33 @@ export class MailIndex extends React.Component {
     changeIsStarred = (mailId) => {
         console.log('mailId', mailId);
         mailService.changeStarColor(mailId)
-         this.loadMails()
+        this.loadMails()
+    }
+
+    mailsToShow() {
+        const currMails = this.state.mails
+        let mails = currMails.filter(mail => mail.sender.toLowerCase().includes(this.state.filterByName.toLowerCase()))
+        if (this.state.filterRatio === 'read') {
+            mails = currMails.filter(mail => mail.isRead)
+            console.log('mails', mails);
+        }
+        else if (this.state.filterRatio === 'unread') {
+            mails = currMails.filter(mail => !mail.isRead)
+        }
+
+        return mails;
     }
 
 
-    
+
     render() {
         const { onDeleteMail, changeIsStarred } = this
-        const {mails} = this.state
+        const  mails  = this.mailsToShow()
         // console.log('mails', mails)
 
         if (!mails) return <h2> loading...</h2>
         return <section className="main-mail-index flex">
-            <SideBar />
+            <SideBar openCompose={this.openCompose} />
             <div className="mails-container">
                 <MailFilter onSetFilter={this.onSetFilter} />
                 <MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} />

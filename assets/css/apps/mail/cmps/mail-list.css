@@ -4,6 +4,8 @@
     height: 90%;
 }
 
+
+
 .mail-list li {
     cursor: pointer;
     transition: box-shadow .2s;
@@ -13,5 +15,8 @@
 .mail-list li:hover {
     box-shadow: 0px 0px 10px 5px #8180804a;
 }
+
+
+
 
 

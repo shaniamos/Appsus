@@ -6,7 +6,7 @@ export function MailPreview({ mail, onDeleteMail, changeIsStarred }) {
     // console.log('mail', mail.);
 
     return <Link to={`/mail/${mail.id}`}>
-        <section className="mail-preview flex space-evenly align-center">
+        <section className="mail-preview flex space-between align-center">
             <button className="star-btn" onClick={(ev) => {
                 ev.preventDefault()
                 changeIsStarred(mail.id)
@@ -16,8 +16,9 @@ export function MailPreview({ mail, onDeleteMail, changeIsStarred }) {
 
             </button>
             <div ><h3 className="send-from-preview">{mail.sender}</h3></div>
-            <div className="subject-body-preview">
-                <h3>{mail.subject} - <p>{mail.body}</p></h3>
+            <div className="subject-body-preview flex space-between">
+               <div> <h3>{mail.subject} </h3></div>
+               <div> <p>{mail.body}</p></div>
 
             </div>
             <div className="date-preview">{new Date(mail.sentAt).toLocaleDateString('en-US', { year: "numeric", month: "short" })}</div>
@@ -25,7 +26,6 @@ export function MailPreview({ mail, onDeleteMail, changeIsStarred }) {
                 ev.preventDefault()
                 onDeleteMail(mail.id)
             }}>
-
             </button>
 
 

@@ -18,11 +18,16 @@ var gMails = [
     { id: utilService.makeId(), subject: 'Are you ready?', body: 'i think is ok', isRead: false, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Ori', isStarred: true, type: 'arrived' },
     { id: utilService.makeId(), subject: 'I gonna go', body: 'i heard about that and you would love it', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'its me again', body: 'i will be there at 20:00 oclock', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
-    { id: utilService.makeId(), subject: 'hello', body: 'no body', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'lets play', body: 'i love this game', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
+    { id: utilService.makeId(), subject: 'hello', body: 'no body', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'yes we are good', body: 'we did it perfect', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
-    { id: utilService.makeId(), subject: 'see you tonight', body: 'we will meet in tel aviv', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
     { id: utilService.makeId(), subject: 'yes, we can', body: 'That what Obama said', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: true, type: 'sent' },
+    { id: utilService.makeId(), subject: 'see you tonight', body: 'we will meet in tel aviv', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
+    { id: utilService.makeId(), subject: 'Are you ready?', body: 'i think is ok', isRead: false, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Ori', isStarred: true, type: 'arrived' },
+    { id: utilService.makeId(), subject: 'hello', body: 'no body', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
+    { id: utilService.makeId(), subject: 'hello im here', body: 'haaloooo', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: false, type: 'sent' },
+    { id: utilService.makeId(), subject: 'Are you ready?', body: 'they are very good', isRead: false, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Ori', isStarred: true, type: 'arrived' },
+    { id: utilService.makeId(), subject: 'about the project', body: 'hey i would be happy', isRead: true, sentAt: 1551133930534, to: 'momo@momo.com', sender: 'Sharon', isStarred: true, type: 'sent' },
 ]
 
 function query() {
