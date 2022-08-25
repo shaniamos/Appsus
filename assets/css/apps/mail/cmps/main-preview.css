@@ -7,10 +7,16 @@
 
 
 .mail-preview p {
-    white-space: nowrap;
-    max-width: 15ch;
+    display : inline;
+    font-size: 1rem;
+    max-width: 12ch;
     overflow: hidden;
     text-overflow: ellipsis;
+   
+}
+
+.subject-body-preview  {
+    padding-left: 15px;
 }
 
 
@@ -22,12 +28,28 @@
     flex-grow: 1;
 }
 
-.mail-preview .sentFrom-preview{
+.mail-preview .send-from-preview{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 15ch;
+}
 
+.fav-star-starred {
+    padding-right: 15px;
+    color: gold
+}
+
+.fav-star {
+    padding-right: 15px;
+}
+
+.star-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 

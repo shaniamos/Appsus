@@ -1,13 +1,14 @@
+
+
 .main-mail-index {
-    
     width: 100%;
-    
+    font-family: Lato;
 }
 
-.subject-body-container{
-
+.subject-body-container {
     align-items: center;
 }
+
 
 
 
