@@ -5,7 +5,7 @@ const { Link } = ReactRouterDOM
 
 export class MailDetails extends React.Component {
     state = {
-        mail: null
+        mail: '',
     }
 
     componentDidMount() {
@@ -20,14 +20,35 @@ export class MailDetails extends React.Component {
 
 
     render() {
-        const mail = this.state.mail
+        const { mail } = this.state
         console.log(mail);
 
-        return <section>
-            <SideBar />
-            
-            
-        </section>
+        return (
+            <section className="mail-details-container flex">
+                <SideBar />
+
+                <div className="mail-data">
+                    <div className="mail-subject">
+                        <h2>{mail.subject}</h2>
+                    </div>
+                    <hr />
+                    <div className="mail-details-sender">
+                        <h1>Sender: {mail.sender}</h1><hr />
+                    </div>
+                    <p className="details-body">{mail.body}</p>
+
+                    <button className="back-btn" onClick={() => this.props.history.push('/mail')}><i className="fas fa-arrow-left"></i> Back</button>
+                </div>
+
+
+
+
+
+
+
+
+            </section>
+        )
     }
 
 }

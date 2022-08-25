@@ -23,7 +23,9 @@
     src: url('/assets/fonts/lato/DynaPuff-VariableFont_wdth\,wght.ttf');
 }
 
+
 @font-face {
-    font-family: dynaPuff;
-    src: url('/assets/fonts/DynaPuff-VariableFont_wdth\,wght.ttf');
+    font-family: pacifico;
+    src: url('/assets/fonts/Pacifico/Pacifico-Regular.ttf');
 }
+

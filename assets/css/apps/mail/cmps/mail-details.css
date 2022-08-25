@@ -1,0 +1,41 @@
+.mail-details-container {
+    font-family: lato;
+    /* padding-left: 30px; */
+    
+}
+
+.mail-subject {
+    font-size: 1.8rem;
+
+}
+.mail-details-container .mail-data {
+    width: 90%;
+    margin: 20px 20px 20px 20px;
+}
+
+.mail-details-sender {
+    font-family: dynaPuff;
+    color: rgb(114, 114, 114);
+}
+
+.details-body {
+    min-height: 40%;
+    font-size: 1.3rem;
+}
+
+.back-btn {
+    border-radius: 5px;
+    width: 7rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    margin: 5px 5px 5px 5px;
+    transition: background-color .2s;
+    
+}
+
+
+.back-btn:hover {
+    background-color: #ccc;
+}

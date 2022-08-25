@@ -5,9 +5,11 @@ export function MailFilter(props) {
 
         return <React.Fragment>
                 <section className="mail-filter">
+                        <div className="mail-filter-search">
                         <input type="search"
                                 placeholder="serach"
                                 onChange={(ev) => { props.onSetFilter(ev) }} />
+                        </div>
                         <div className="radio-sort">
                                 <label htmlFor="all">  All</label>
                                 <input type="radio"
