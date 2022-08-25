@@ -1,0 +1,18 @@
+.note-side-nav {
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    /* box-sizing: border-box; */
+    top: 64px;
+    height: calc(100% - 64px);
+    min-height: auto;
+    overflow: hidden;
+    padding-top: 8px;
+    /* position: fixed; */
+    transition-property: width, box-shadow, border-radius;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    width: 280px;
+    z-index: 985;
+    flex: 1 0 auto;
+
+}

@@ -10,8 +10,6 @@ export class NotePreview extends React.Component {
         // currType: this.prop.type
     }
 
-
-
     render() {
         const { note } = this.props
         const { type } = this.props.note 
