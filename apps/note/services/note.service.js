@@ -5,6 +5,7 @@ export const NoteService = {
     query,
     save,
     remove,
+    getById,
 }
 
 const KEY = 'notesDB'
@@ -34,12 +35,24 @@ function query(filterBy) {
     return Promise.resolve(notes)
 }
 
+function getById(noteId) {
+    if (!noteId) return Promise.resolve(null)
+    const notes = _loadFromStorage()
+    const note = notes.find(note => noteId === note.id)
+    return Promise.resolve(note)
+}
+
 function remove(noteId) {
     // return Promise.reject('Not now!!!')
     let notes = _loadFromStorage()
     notes = notes.filter(note => note.id !== noteId)
     _saveToStorage(notes)
     return Promise.resolve()
+}
+
+function save(note) {
+    if (note.id) return _update(note)
+    else return _add(note)
 }
 
 function _update(noteToUpdate) {
@@ -49,9 +62,9 @@ function _update(noteToUpdate) {
     return Promise.resolve(noteToUpdate)
 }
 
-function _add({ vendor, speed }) {
+function _add({ type, isPinned, info }) {
     let notes = _loadFromStorage()
-    const note = _createNote(vendor, speed)
+    const note = _createNote(type, isPinned, info)
     notes = [note, ...notes]
     _saveToStorage(notes)
     return Promise.resolve(note)
@@ -65,38 +78,89 @@ function _createNotes() {
             type: "note-txt",
             isPinned: true,
             info: {
-                txt: "Fullstack Me Baby!"
+                title: "My Bad Habits",
+                txt:
+                    `Watching too much Youtube,
+Watching too much movies,
+Wasting a lot of time
+watching new`
+            },
+            style: {
+                backgroundColor: "#FBBC05"
             }
         },
         {
             id: "n102",
-            type: "note-img",
+            type: "note-txt",
+            isPinned: true,
             info: {
-                url: "http://some-img/me",
-                title: "Bobi and Me"
+                title: "To Live Longer!",
+                txt: `
+Have plenty of sleep,
+Don't take stress,
+intermittent Fasting,
+Very low sugar intake,
+Exercise`
             },
             style: {
-                backgroundColor: "#00d"
+                backgroundColor: "#4285F4"
             }
         },
         {
             id: "n103",
-            type: "note-todos",
+            type: "note-img",
             info: {
-                label: "Get my stuff together",
-                todos: [
-                    { txt: "Driving liscence", doneAt: null },
-                    { txt: "Coding power", doneAt: 187111111 }
-                ]
+                url: "http://coding-academy.org/books-photos/20.jpg",
+                title: "Bobi and Me",
+                txt: "Sent photos from the zoo to Harry"
+            },
+            style: {
+                backgroundColor: "#FFFFFF"
             }
         },
         {
             id: "n104",
+            type: "note-todos",
+            info: {
+                label: "Get my stuff together",
+                todos: [
+                    { txt: "Discuss new project with team", doneAt: null },
+                    { txt: "Coding power", doneAt: 187111111 },
+                    { txt: "Write a blog about new trends", doneAt: 187111111 },
+                    { txt: "Coding power", doneAt: 187111111 },
+                ]
+            }
+        },
+        {
+            id: "n105",
+            type: "note-txt",
+            isPinned: true,
+            info: {
+                title: "Language Arts Assignment for Friday, September 23",
+                txt: "write an essay!"
+            }
+        },
+        {
+            id: "n106",
             type: "note-txt",
             isPinned: true,
             info: {
                 title: "Titelooo",
                 txt: "Fullstack Me Baby!"
+            },
+            style: {
+                backgroundColor: "#EA4335"
+            }
+        },
+        {
+            id: "n107",
+            type: "note-img",
+            info: {
+                url: "http://coding-academy.org/books-photos/14.jpg",
+                title: "Read a book",
+            },
+            style: {
+                backgroundColor: "#439854"
             }
         },
     ]
@@ -108,12 +172,12 @@ function _createNotes() {
     return notes
 }
 
-function _createNote(vendor, speed = utilService.getRandomIntInclusive(1, 200)) {
+function _createNote(type, isPinned, info) {
     return {
         id: utilService.makeId(),
-        vendor,
-        speed,
-        desc: utilService.makeLorem()
+        type,
+        isPinned,
+        info,
     }
 }
 
