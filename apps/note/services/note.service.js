@@ -79,7 +79,11 @@ function _createNotes() {
             isPinned: true,
             info: {
                 title: "My Bad Habits",
-                txt: "Watching too much Youtube, Watching too much movies, Wasting a lot of time watching new"
+                txt:
+                    `Watching too much Youtube,
+Watching too much movies,
+Wasting a lot of time
+watching new`
             },
             style: {
                 backgroundColor: "#FBBC05"
@@ -91,7 +95,12 @@ function _createNotes() {
             isPinned: true,
             info: {
                 title: "To Live Longer!",
-                txt: "Have plenty of sleep, Don't take stress,  intermittent Fasting, Very low sugar intake, Exercise"
+                txt: `
+Have plenty of sleep,
+Don't take stress,
+intermittent Fasting,
+Very low sugar intake,
+Exercise`
             },
             style: {
                 backgroundColor: "#4285F4"
@@ -101,7 +110,7 @@ function _createNotes() {
             id: "n103",
             type: "note-img",
             info: {
-                url: "http://some-img/me",
+                url: "http://coding-academy.org/books-photos/20.jpg",
                 title: "Bobi and Me",
                 txt: "Sent photos from the zoo to Harry"
             },
@@ -141,6 +150,17 @@ function _createNotes() {
             },
             style: {
                 backgroundColor: "#EA4335"
+            }
+        },
+        {
+            id: "n107",
+            type: "note-img",
+            info: {
+                url: "http://coding-academy.org/books-photos/14.jpg",
+                title: "Read a book",
+            },
+            style: {
+                backgroundColor: "#439854"
             }
         },
     ]

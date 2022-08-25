@@ -46,7 +46,7 @@ export class NoteIndex extends React.Component {
         const { notes } = this.state
         const { onRemoveNote, loadNotes } = this
         return <section className="note-index main-layout ">
-
+            
             <div className="note-side-nav flex column">
                 <a className="notes" href="">Notes</a>
                 <a className="notes" href="">Reminder</a>

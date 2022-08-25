@@ -70,8 +70,8 @@ export class NoteEdit extends React.Component {
                     placeholder="Title"
                     onChange={handleChange} />
 
-                <input className="txt-input" type="text" name="txt"
-                    value={txt} id="txt"
+                <textarea className="txt-input" type="text" name="txt"
+                    value={txt} id="txt" cols="5"
                     placeholder="Take a note..."
                     onChange={handleChange} />
                 <button className="btn-create-image" data-tooltip-text="Save" tabIndex="1">
