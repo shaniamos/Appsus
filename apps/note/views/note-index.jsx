@@ -1,4 +1,5 @@
 import { NoteList } from "../cmps/note-list.jsx"
+import { NoteEdit } from "../cmps/note-edit.jsx"
 import { NoteService } from "../services/note.service.js"
 
 const Router = ReactRouterDOM.HashRouter
@@ -9,6 +10,7 @@ export class NoteIndex extends React.Component {
     state = {
         notes: [],
         filterBy: null,
+        labels: [],
     }
 
     componentDidMount() {
@@ -42,7 +44,7 @@ export class NoteIndex extends React.Component {
 
     render() {
         const { notes } = this.state
-        const { onRemoveNote } = this
+        const { onRemoveNote, loadNotes } = this
         return <section className="note-index main-layout ">
 
             <div className="note-side-nav flex column">
@@ -67,6 +69,7 @@ export class NoteIndex extends React.Component {
                         </button>
                     </div>
                 </div>
+                <NoteEdit loadNotes={loadNotes}/>
                 <NoteList notes={notes} onRemoveNote={onRemoveNote} />
             </div>
         </section>

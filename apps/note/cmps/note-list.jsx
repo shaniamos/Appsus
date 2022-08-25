@@ -1,53 +1,23 @@
 import { NotePreview } from '../cmps/note-preview.jsx'
+import { PreviewToolbar } from '../cmps/preview-toolbar.jsx'
 const { Link } = ReactRouterDOM
 
 export class NoteList extends React.Component {
 
     render() {
-        console.log(this.props)
         const { onRemoveNote } = this.props
         const { notes } = this.props
         return <section className="note-list">
             <ul>
                 {
-                    notes.map((note , idx) =>
-                        <li className="note-preview" key={note.id}>
-                            <NotePreview note={note}/>
-                            {/* <Link to={`/note/edit/${note.id}`}>Edit</Link> */}
-                            {/* <button onClick={() => onRemoveCar(note.id)}>X</button> */}
-                            <div className="preview-toolbar" role="toolbar" key={note.id}>
-                                {/* RemindMe */}
-                                <button className="" data-tooltip-text="RemindMe" tabIndex="1">
-                                <i className="fa-regular fa-bell"></i>
-                                </button>
-                                {/* Collaborator */}
-                                <button className="" data-tooltip-text="Collaborator" tabIndex="1">
-                                <i className="fa-solid fa-user-plus"></i>
-                                </button>
-                                {/* BackgroundOptions */}
-                                <button className="" data-tooltip-text="BackgroundOption" tabIndex="1">
-                                <i className="fa-solid fa-palette"></i>
-                                </button>
-                                {/* AddImage */}
-                                <button className="" data-tooltip-text="AddImage" tabIndex="1">
-                                <i className="fa-regular fa-image"></i>
-                                </button>
-                                {/* Archive
-                                <button className="" data-tooltip-text="Archive" tabIndex="1">
-                                <i className="fa-solid fa-box-archive"></i>
-                                </button> */}
-                                {/* More */}
-                                <button className="" data-tooltip-text="More" tabIndex="1">
-                                <i className="fa-solid fa-ellipsis-vertical"></i>
-                                </button>
-                                {/* Delete */}
-                                <button className="" data-tooltip-text="DeleteNote" tabIndex="1" onClick={()=> onRemoveNote(note.id)}>
-                                <i className="fa-solid fa-trash-can"></i>
-                                </button>
-
-                            </div>
+                    notes.map((note, idx) => {
+                        const style = note.style ? note.style : {}
+                        const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "transparent"
+                        return <li className="note-preview" key={note.id} style={{ backgroundColor: backgroundColor }}>
+                            <NotePreview note={note} />
+                            <PreviewToolbar noteId={note.id} onRemoveNote={onRemoveNote}/>
                         </li>
-                    )
+                    })
                 }
             </ul>
 
