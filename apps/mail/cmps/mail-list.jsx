@@ -5,10 +5,11 @@ const { Link } = ReactRouterDOM
 
 export function MailList({ mails, onDeleteMail }) {
     // console.log('mails', mails);
-    return <ul className="main-list clean-list">
+    return <ul className="mail-list clean-list">
         {mails.map(mail => 
             <li key={mail.id}>
-                <MailPreview mail={mail} onDeleteBook={onDeleteMail}/>
+                <MailPreview mail={mail} onDeleteMail={onDeleteMail}/>
+                
             </li>
         )}
         
