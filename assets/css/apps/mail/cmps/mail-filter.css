@@ -19,6 +19,11 @@
     background-color: rgb(199, 199, 199);
 }
 .mails-container {
-    width: 80%;
+    width: 90%;
     padding: 10px
+}
+
+
+label {
+    padding-right: 3px;
 }

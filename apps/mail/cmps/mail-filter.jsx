@@ -2,9 +2,13 @@
 
 export function MailFilter(props) {
 
+        // function toggleMenu(){
+        //         document.body.classList.toggle('menu-opened')
+        // }
 
         return <React.Fragment>
                 <section className="mail-filter">
+                {/* <button class="toggle-menu" onClick={() => toggleMenu()}>☰</button> */}
                         <div className="mail-filter-search">
                         <input type="search"
                                 placeholder="Serach"
@@ -13,6 +17,7 @@ export function MailFilter(props) {
                         <div className="radio-sort">
                                 <label htmlFor="all">  All</label>
                                 <input type="radio"
+                                        className="all-filter"
                                         value="all"
                                         name="setReadDis"
                                         onChange={(ev) => props.onSetFilter(ev)} />
