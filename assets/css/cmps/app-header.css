@@ -1,14 +1,27 @@
 header {
-    background: lightcyan;
-    border-bottom: 2px solid white;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: inset 0 -1px 0 0 #dadce0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;    
+    font: 13px/27px Roboto, Arial, sans-serif;
+    height: 64px;
 }
-
 .app-header {
     display: flex;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-   
-    border-bottom: 1px solid #aeaeae;
+    align-items: center;
+    align-self: center;
+    padding: 8px;
+    height: 100%;
+    margin-top: 5px;
+}
+
+.main-logo {
+    width: 150px;
+    padding-left: 20px;
 }
 
 nav a {
@@ -21,19 +34,11 @@ nav a.active {
     text-decoration: overline;
 }
 
-.logo {
-    font-family: pacifico;
-    color: #08dff3;
-    font-size: 3rem;
-    font-style: italic;
-    margin-left: 7px;
-}
-
 .main-nav {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     padding: 15px;
-    
+
 
 }
 
@@ -51,10 +56,10 @@ nav a.active {
 }
 
 .main-nav>* {
-    
+
     font-size: 1.2rem;
     color: #08dff3;
     font-weight: bold;
-    
+
     margin-left: 20px;
 }

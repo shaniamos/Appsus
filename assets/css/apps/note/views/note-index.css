@@ -1,6 +1,7 @@
 .note-index {
+    top: 64px;
     clear: both;
     display: flex;
     flex-direction: row;
-    height: 100%;
+    /* height: 100%; */
 }

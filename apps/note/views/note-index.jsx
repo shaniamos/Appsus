@@ -34,13 +34,11 @@ export class NoteIndex extends React.Component {
         ev.preventDefault()
         NoteService.remove(noteId)
             .then(() => {
-                console.log('Removed!')
                 const notes = this.state.notes.filter(note => note.id !== noteId)
                 this.setState({ notes })
-                showSuccessMsg('Note removed')
+                showSuccessMsg('Note binned')
             })
             .catch(err => {
-                console.log('Problem!!', err)
                 showErrorMsg('Cannot remove note')
             })
     }

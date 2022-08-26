@@ -3,9 +3,13 @@ import { UserMsg } from './user-msg.jsx';
 
 export function AppHeader() {
 
-    return <header className="app-header">
+    return <header >
+        <div className="app-header">
+
         <Link to="/">
-            <div className="logo">AppSus </div>
+            <div className="main-logo">
+                <img src="../assets/img/festisite_google.png" alt="" />
+            </div>
         </Link>
 
         <nav className="main-nav">
@@ -16,6 +20,7 @@ export function AppHeader() {
             <NavLink exact to="/"><i className="fa-solid fa-house-chimney"></i></NavLink>
         </nav>
         <UserMsg />
+        </div>
 
     </header>
 }

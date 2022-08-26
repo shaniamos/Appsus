@@ -1,3 +1,20 @@
 .edit-toolbar {
     background-color:white;
 }
+
+.edit-toolbar .btn-save {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 2px;
+    bottom: 3px;
+    background-color: rgb(206, 201, 201);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    cursor: pointer;
+    outline: none;
+}

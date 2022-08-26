@@ -57,12 +57,44 @@ export class NoteEdit extends React.Component {
             })
     }
 
+    onImgInput = (ev) => {
+        var reader = new FileReader()
+        reader.readAsDataURL(ev.target.files[0])
+        reader.onload = (event) => {
+            this.doUploadImg(event.target.result)
+        }
+    }
+
+    doUploadImg = (imgDataUrl) => {
+        const formData = new FormData();
+        formData.append('img', imgDataUrl)
+        fetch('//ca-upload.com/here/upload.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.text())
+            .then((url) => {
+                console.log('Got back live url:', url);
+                const newUrl = url.replace("serveForShare.php?id=", "img/")
+                this.setState(({ note }) => ({
+                    note: {
+                        ...note, info: {
+                            ...note.info, ['url']: `${newUrl}.jpg`
+                        }, type: 'note-img'
+                    }
+                }))
+            })
+            .catch((err) => {
+                console.error(err)
+            })
+    }
+    
     render() {
-        console.log('state:', this.state.note)
-        console.log(this.props)
-        const { title, txt } = this.state.note.info
-        const { onSaveNote, handleChange } = this
+        console.log('state:', this.state)
+        const { title, txt , url } = this.state.note.info
+        const { onSaveNote, handleChange, onImgInput } = this
         return <div className="edit-note-modal flex column">
+            {(url)&& <img className="edit-modal-img" src={`${url}`} alt="" />}
 
             <form className="flex column" onSubmit={onSaveNote} id="save-note">
                 <input className="title-input" type="text" name="title"
@@ -86,8 +118,9 @@ export class NoteEdit extends React.Component {
                 <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
                     <i className="fa-regular fa-image"></i>
                 </button>
+                <input type="file" className="file-input-btn" name="image" onChange={onImgInput} accept=".png, .jpg, .jpeg" />
                 <button className="btn-save" data-tooltip-text="Save" tabIndex="1" form="save-note">
-                    Save
+                    +
                 </button>
             </div>
         </div>

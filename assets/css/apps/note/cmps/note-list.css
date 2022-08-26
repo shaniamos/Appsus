@@ -1,5 +1,8 @@
-.note-list .preview-list{
-    columns: 3;
-    -webkit-columns: 3;
-    -moz-columns: 3;
+.preview-list {
+    -webkit-columns: 250px;
+    -moz-columns: 250px;
+    columns: 250px;
+    /* column-gap: 2em; */
+    /* column-fill: auto; */
+    /* height: 60vh; */
 }

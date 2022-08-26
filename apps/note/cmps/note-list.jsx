@@ -4,7 +4,7 @@ const { Link } = ReactRouterDOM
 
 export class NoteList extends React.Component {
 
-    
+
 
     render() {
         const { onRemoveNote } = this.props
@@ -15,8 +15,8 @@ export class NoteList extends React.Component {
                     notes.map((note, idx) => {
                         const style = note.style ? note.style : {}
                         const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "transparent"
-                        return <Link to={`/note/edit/${note.id}`} key={note.id}>
-                            <li className="note-preview"  style={{ backgroundColor: backgroundColor }}>
+                        return <Link to={`/note/edit/${note.id}`} key={note.id} className="note-li">
+                            <li className="note-preview" style={{ backgroundColor: backgroundColor }}>
                                 <NotePreview note={note} />
                                 <PreviewToolbar noteId={note.id} onRemoveNote={onRemoveNote} />
                             </li>

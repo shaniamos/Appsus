@@ -23,7 +23,6 @@ export class TodosPreview extends React.Component {
     render() {
         const { title, txt } = this.props.note.info
         const { todos } = this.props.note.info
-        console.log(this.state.todos)
         const { onToggleTodo, onRemoveTodo } = this
         return <div className="todos-preview">
             {(title) && <h1 className="preview-title" >{title}</h1>}
