@@ -63,29 +63,41 @@ export class NoteIndex extends React.Component {
         return <section className="note-index main-layout ">
             {/* <NoteNav /> */}
             <div className="note-content">
-                <Link to="/note/edit">
-                    <div className="note-create">
+                <div className="note-create">
+                    <Link to="/note/edit/">
                         <p> Take a note...</p>
-                        <div className="btns-create">
+                    </Link>
+                    <div className="btns-create">
+
+                        <Link to="/note/edit/">
+                            <button className="btn-create-txt" data-tooltip-text="NewList" tabIndex="1">
+                                <i className="fa-solid fa-t"></i>
+                            </button>
+                        </Link>
+
+                        <Link to="/note/edit/listType">
                             <button className="btn-create-list" data-tooltip-text="NewList" tabIndex="1">
                                 <i className="fa-regular fa-square-check"></i>
                             </button>
-                            <button className="btn-create-draw" data-tooltip-text="NewNoteWithDrawing" tabIndex="1">
-                                <i className="fa-solid fa-paintbrush"></i>
+                        </Link>
+
+                        <Link to="/note/edit/urlType">
+                            <button className="btn-create-url" data-tooltip-text="NewNoteWithDrawing" tabIndex="1">
+                                <i className="fa-brands fa-square-youtube"></i>
                             </button>
-                            <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
-                                <i className="fa-regular fa-image"></i>
-                            </button>
-                        </div>
+                        </Link>
+
+                        <Link to="/note/edit/imgType">
+                                <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
+                                    <i className="fa-regular fa-image"></i>
+                                </button>
+                        </Link>
                     </div>
-                </Link>
+                </div>
                 <NoteList notes={notes} onRemoveNote={onRemoveNote} />
             </div>
             <section>
-                {/* <NoteEdit loadNotes={loadNotes} /> */}
-                <Route exact path="/note/edit/:noteId?" render={(props) => <NoteEdit loadNotes={loadNotes} {...props} /> } />
-
-                {/* <Route path="/note/edit/:noteId?" component={NoteEdit} /> */}
+                <Route exact path="/note/edit/:noteType?" render={(props) => <NoteEdit loadNotes={loadNotes} {...props} />} />
             </section>
         </section>
 

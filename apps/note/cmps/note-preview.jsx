@@ -14,19 +14,13 @@ export class NotePreview extends React.Component {
         const { note } = this.props
         const { type } = this.props.note 
         const DynamicCmp = (props) => {
-            // console.log( props)
             switch (type) {
-                case 'note-txt':
-                    return <TxtPreview {...props} />
-                case 'note-img':
-                    return <ImgPreview {...props} />
                 case 'note-todos':
                     return <TodosPreview {...props} />
                 default:
                     return //...some default error view
             }
         }
-
         return <section>
             <DynamicCmp note={this.props.note}/>
         </section>

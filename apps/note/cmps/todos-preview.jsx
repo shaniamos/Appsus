@@ -1,3 +1,5 @@
+import { TodosList } from "./todos-list.jsx"
+
 export class TodosPreview extends React.Component {
     state = {
         todos: []
@@ -15,28 +17,21 @@ export class TodosPreview extends React.Component {
     }
 
     onRemoveTodo = (ev , todoIdx) => {
-        ev.stopPropagation()
+        ev.preventDefault()
         const todos = this.state.todos.filter((todo, idx) => idx !== todoIdx)
         this.setState({ todos })
     }
 
     render() {
         const { title, txt } = this.props.note.info
-        const { todos } = this.props.note.info
+        const { todos } = this.state
+        // console.log(this.state.todos)
         const { onToggleTodo, onRemoveTodo } = this
         return <div className="todos-preview">
             {(title) && <h1 className="preview-title" >{title}</h1>}
             {(txt) && <pre className="preview-text" >{`${txt}`}</pre>}
-            {(todos) && (<ul className="todos-list">
-                {
-                    todos.map((todo, idx) => {
-                        return <li key={idx} onClick={() => onToggleTodo(idx)}
-                            className={todo.doneAt ? 'done' : ''}>
-                            {todo.txt}
-                            <button onClick={(event) => onRemoveTodo(event, idx)}>x</button></li>
-                    })
-                }
-            </ul>)}
+            <TodosList todos={todos} onRemoveTodo={onRemoveTodo} onToggleTodo={onToggleTodo} />
+            
         </div>
     }
 }
