@@ -3,8 +3,6 @@ import { utilService } from '../../../services/util.service.js'
 
 const KEY = 'EmailsDB'
 
-
-
 export const mailService = {
     query,
     deleteMail,
@@ -12,6 +10,7 @@ export const mailService = {
     changeStarColor,
     sendMail,
     moveToDraftMails,
+    
 }
 
 var gMails = [

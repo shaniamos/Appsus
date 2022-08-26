@@ -3,6 +3,9 @@
 .main-mail-index {
     width: 100%;
     font-family: Lato;
+    top: 64px;
+    position: absolute;
+   background-color: #fffefe;;
 }
 
 .subject-body-container {

@@ -1,8 +1,11 @@
 .mail-details-container {
     font-family: lato;
     /* padding-left: 30px; */
-    
+    position: relative;
+    top: 64px;
 }
+    
+
 
 .mail-subject {
     font-size: 1.2rem;
@@ -11,14 +14,26 @@
 .mail-details-container .mail-data {
     width: 90%;
     margin: 20px 20px 20px 20px;
+    position: relative;
+    top: 100px;
+}
+
+.mail-details-container .mail-subject {
+    height: 3.7rem;
+}
+
+.mail-details-container .mail-details-sender h1 {
+    height: 5rem;
 }
 
 .mail-details-sender {
     font-family: dynaPuff;
     color: rgb(114, 114, 114);
+    padding-top: 2.5rem;
 }
 
 .details-body {
+    padding-top: 4.5rem;
     min-height: 40%;
     font-size: 1.3rem;
 }

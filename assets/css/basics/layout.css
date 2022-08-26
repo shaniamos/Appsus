@@ -1,0 +1,39 @@
+@media (max-width: 600px) {
+    .main-layout>*:not(.full) {
+        max-width: 570px;
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+    }
+
+    .app-header {
+
+    }
+
+    .main-nav {
+        position: fixed;
+        flex-direction: column;
+        top: 0px;
+        background-color: rgb(217, 232, 236);
+        right: 0;
+        height: 100vh;
+        justify-content: flex-start;
+        border-left: 1px solid #868282;
+        min-width: 150px;
+        align-items: center;
+        
+        transform: translateX(100%);
+        transition: transform .2s, box-shadow .2s;
+    }
+    
+    body.menu-opened .main-nav {
+        box-shadow: 0 0 8px 1px #d1d1d1;
+        transform: translateX(0);
+
+    } 
+    
+    body.menu-opened .main-screen {
+        opacity: 1;
+        pointer-events: auto;
+    } 
+}
+   

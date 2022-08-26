@@ -66,9 +66,9 @@ export class MailCompose extends React.Component {
           <div className="compose-footer">
             <button type="submit" title="Send">Send</button>
 
+        <button onClick={() => this.props.onCloseCompose()} title="Send">exit</button>
           </div>
         </form>
-        <button onClick={() => this.props.onCloseCompose()} title="Send">exit</button>
       </section>
     )
   }
