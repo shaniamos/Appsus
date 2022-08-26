@@ -11,26 +11,41 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 15ch;
+    padding-left: 8px;
    
 }
 
-.subject-body-preview  {
-    padding-left: 15px;
+.mail-preview .subject-body-preview h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 15ch;
+   
 }
-
-
-.subject-body-preview {
-    width: 50%;
-    align-items: center;
-}
-
-.mail-preview .subject-body-preview > *{
+/* .mail-preview .subject-body-preview > *{
     flex-grow: 1;
-}
+} */
 
 .send-from-preview {
-    width: 50px;
+    flex-grow: 3;
+    /* padding-right: 80px; */
 }
+
+.subject-body-preview  {
+    align-items: center;
+    /* padding-left: 15px; */
+    flex-grow: 7 ;
+    float: left;
+    justify-content: center;
+  
+}
+
+
+
+.date-preview {
+    /* flex-grow:  ; */
+}
+
 
 
 
@@ -51,10 +66,13 @@
     cursor: pointer;
 }
 
-.delete-book-btn {
+.delete-mail-btn {
+    margin-left: 15px;
+    float: right;
     cursor: pointer;
     border: none;
     background-color: white;
+
 }
 
 
