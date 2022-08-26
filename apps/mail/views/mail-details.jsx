@@ -1,8 +1,6 @@
 import { mailService } from "../services/mail.service.js";
 import { SideBar } from "../cmps/side-bar.jsx";
 
-const { Link } = ReactRouterDOM
-
 export class MailDetails extends React.Component {
     state = {
         mail: '',
@@ -18,14 +16,23 @@ export class MailDetails extends React.Component {
             .then(mail => this.setState({ mail }))
     }
 
+    openCompose = () => {
+        return
+    }
+
+    onChangeView = () => {
+        return
+    }
+
 
     render() {
         const { mail } = this.state
-        console.log(mail);
+        const {openCompose, onChangeView} = this
+        // console.log(mail);
 
         return (
             <section className="mail-details-container flex">
-                <SideBar />
+                <SideBar openCompose={openCompose} onChangeView={onChangeView} />
 
                 <div className="mail-data">
                     <div className="mail-subject">

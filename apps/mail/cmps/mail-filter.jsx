@@ -7,7 +7,7 @@ export function MailFilter(props) {
                 <section className="mail-filter">
                         <div className="mail-filter-search">
                         <input type="search"
-                                placeholder="serach"
+                                placeholder="Serach"
                                 onChange={(ev) => { props.onSetFilter(ev) }} />
                         </div>
                         <div className="radio-sort">

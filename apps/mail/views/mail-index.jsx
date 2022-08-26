@@ -3,10 +3,7 @@ import { SideBar } from "../cmps/side-bar.jsx"
 import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
-
-
-const Router = ReactRouterDOM.HashRouter
-const { Route, Switch, NavLink } = ReactRouterDOM
+import { MailCompose } from "../cmps/mail-compose.jsx"
 
 export class MailIndex extends React.Component {
 
@@ -15,6 +12,7 @@ export class MailIndex extends React.Component {
         filterByName: '',
         filterRatio: '',
         isComposeShown: false,
+        mailType: 'arrived',
 
     }
 
@@ -38,10 +36,12 @@ export class MailIndex extends React.Component {
 
     openCompose = () => {
         this.setState({ isComposeShown: true })
+        // console.log(this.state);
     }
-
+    
     closeCompose = () => {
         this.setState({ isComposeShown: false })
+        // console.log(this.state);
     }
 
 
@@ -56,38 +56,65 @@ export class MailIndex extends React.Component {
     }
 
     changeIsStarred = (mailId) => {
-        console.log('mailId', mailId);
         mailService.changeStarColor(mailId)
-        this.loadMails()
+        .then(() => this.loadMails()) 
     }
 
+    moveToDrafts = (draftMail) => {
+        this.closeCompose()
+        // console.log('draftMail', draftMail);
+        mailService.moveToDraftMails(draftMail)
+            .then(() => {
+                console.log('Moved to draft');
+            this.loadMails()
+            })
+    }
+
+    
+    onSendCompose = (newMail) => {
+        this.closeCompose()
+        mailService.sendMail(newMail)
+        .then(() => {
+            console.log('Sent email');
+            this.loadMails()
+        })
+    }
+    
+    onChangeView = (val) => {
+        this.setState({ mailType: val })
+    }
+    
+    
     mailsToShow() {
         const currMails = this.state.mails
-        let mails = currMails.filter(mail => mail.sender.toLowerCase().includes(this.state.filterByName.toLowerCase()))
+        let mailsToShow = currMails.filter(mail => mail.type === this.state.mailType)
+        if (this.state.mailType === 'starred') mailsToShow = currMails.filter(mail => mail.isStarred)
+        let mails = mailsToShow.filter(mail => mail.sender.toLowerCase().includes(this.state.filterByName.toLowerCase()))
         if (this.state.filterRatio === 'read') {
-            mails = currMails.filter(mail => mail.isRead)
+            mails = mailsToShow.filter(mail => mail.isRead)
             console.log('mails', mails);
         }
         else if (this.state.filterRatio === 'unread') {
-            mails = currMails.filter(mail => !mail.isRead)
+            mails = mailsToShow.filter(mail => !mail.isRead)
         }
-
         return mails;
     }
 
-
-
     render() {
-        const { onDeleteMail, changeIsStarred } = this
+        const { onDeleteMail, changeIsStarred, onSendCompose, onSetFilter ,onChangeView, moveToDrafts } = this
         const  mails  = this.mailsToShow()
         // console.log('mails', mails)
 
         if (!mails) return <h2> loading...</h2>
         return <section className="main-mail-index flex">
-            <SideBar openCompose={this.openCompose} />
+            <SideBar openCompose={this.openCompose} onChangeView={onChangeView} />
             <div className="mails-container">
-                <MailFilter onSetFilter={this.onSetFilter} />
-                <MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} />
+                <MailFilter onSetFilter={onSetFilter} />
+                < MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} />
+                {this.state.isComposeShown &&  <MailCompose 
+                onCloseCompose={this.closeCompose} 
+                onSendCompose={onSendCompose}
+                moveToDrafts={moveToDrafts} />}
             </div>
 
 
