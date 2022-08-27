@@ -10,7 +10,9 @@ export function SideBar(props) {
                 <button className="compose-btn btn" onClick={() => props.openCompose()} ><img className="plus-img-compose" src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" />Compose</button>
             </Link>
             <section className="aside-main-nav flex column  ">
-                <div className="inbox " onClick={() => props.onChangeView('arrived')}>
+                <div className="inbox " onClick={() =>{
+                    props.onChangeView('arrived')
+                    } }>
                     <i className="fa-solid fa-inbox icon"></i><span>Inbox </span>
                 </div>
                 <div className="starred " onClick={() => props.onChangeView('starred')}>

@@ -4,7 +4,6 @@ import { UserMsg } from './user-msg.jsx';
 export function AppHeader() {
 
     function openMenu(){
-        console.log('hey');
         document.body.classList.toggle('menu-opened')
 
     }
