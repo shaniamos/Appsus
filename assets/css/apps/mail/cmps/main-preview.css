@@ -16,7 +16,7 @@
    
 }
 
-.mail-preview .subject-body-preview h3 {
+.mail-preview .subject-body-preview h3  {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -69,7 +69,21 @@
     cursor: pointer;
     border: none;
     background-color: white;
+    font-size: large;
+    color: #bdbdbd;
+    transition: color .2s ;
+}
 
+.delete-mail-btn:hover {
+    color: rgb(34, 31, 31);
+}
+
+.readen {
+    font-family: lato;
+}
+
+.bold {
+    font-family: lato-x-bold;
 }
 
 

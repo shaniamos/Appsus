@@ -10,25 +10,34 @@ export const mailService = {
     changeStarColor,
     sendMail,
     moveToDraftMails,
+    changeBold,
     
 }
 
 var gMails = [
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Sharon Bril', subject: 'about the project', body: 'Hey i would be happy to see your projects' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'ShanAmos@gmail.com', subject: 'Hey Bar', body: 'See you tonight' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Sharon Bril', subject: 'about the project', body: 'Hey i would be happy to see your projects' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'ShanAmos@gmail.com', subject: 'Hey Bar', body: 'See you tonight' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Dror Mendel', subject: 'Hello my son', body: 'When are you come home to visist us?' },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Yahav', subject: 'Payment', body: 'I saw your transfer in my account' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Amazon.com', subject: 'Arriving soon!', body: 'Your delivery is on the way and will contact you tomorrow' },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Yahuuuu', subject: 'Faild password', body: 'Please try again later to enter the website' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Google Font', subject: 'You picked very nice fonts', body: 'Use it well' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Google Font', subject: 'You picked very nice fonts', body: 'Use it well' },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Walla Shops', subject: 'Box id: 32RG45#', body: 'We got your order' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Coding Academy', subject: 'Sprint 3 review', body: 'You and Shani did very good work and this sprint!' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Afeka College', subject: 'Schedules', body: 'We happy for you to start the third year and computer science' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Afeka College', subject: 'Schedules', body: 'We happy for you to start the third year and computer science' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amdocs.com', subject: 'Interview', body: 'You will have interview next week' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Fireblocks', subject: 'Mail review', body: 'We happy to tell you that you have been accepted into our company!!' },
     { id: utilService.makeId(), type: 'sent', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'CodingAcademy@code.com', subject: 'Mail review', body: 'We happy to tell you that you have been accepted into our company!!' },
     { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Yahav Mendel', subject: 'מה קורה יהב?', body: 'Are you going to parents this weekend?' },
     { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Afeka@s.afeka.ac.il', subject: 'About the summer course', body: 'I woukd like to know how is goinh with the summer course, if the finnal test is difficult?' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Walla Shops', subject: 'Box id: 24DGDD5#', body: 'You will get the box today from the delivery guy' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Applied Matirials', subject: 'Do you want to here more?', body: 'If you intersted in our jobs, just send us a message' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'YahavMendel@gmail.com', subject: 'About this weekend', body: 'yes i will come this weekend, see you!' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amir@Gmail.com', subject: 'React project', body: 'I have work for you in react if you wanna to do it...' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'PayBox', subject: 'A request for a personal string pull has been received', body: 'Hi Bar Mendel, we received your request to withdraw from the personal balance in the application an amount of 2000 ILS' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Avocode', subject: 'Verify your e-mail to finish signing up for Avocode', body: 'Thank you for choosing Avocode.' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Udemy', subject: 'Social Authentication Added', body: 'Hi Bar,We take your account security seriously and wanted to update you on a change to your account. A Facebook login was just added to your existing Udemy account.' },
+
 ]
 
 function query() {
@@ -100,6 +109,15 @@ function moveToDraftMails(mail){
     
     let eMails = _loadFromStorage()
     eMails.unshift(draftMail)
+    _saveToStorage(eMails)
+    return Promise.resolve()
+
+}
+
+function changeBold(mailId){
+    let eMails = _loadFromStorage()
+    const mail = eMails.find(mail => mail.id === mailId)
+    mail.isRead = true
     _saveToStorage(eMails)
     return Promise.resolve()
 
