@@ -1,4 +1,6 @@
 import { NoteService } from "../services/note.service.js"
+import { NoteNav } from "./note-nav.jsx"
+import { TodosPreview } from "./todos-preview.jsx"
 
 export class NoteEdit extends React.Component {
 
@@ -16,12 +18,43 @@ export class NoteEdit extends React.Component {
 
     componentDidMount() {
         this.loadNote()
+        const { type } = this.state.note
+        const { url } = this.state.note.info
+        console.log(type , url)
     }
 
     loadNote = () => {
-        const { noteId } = this.props.match.params
-        if (!noteId) return
-        NoteService.getById(noteId).then(note => this.setState({ note }))
+        // note/edit/
+        // note/edit/imgType
+        // note/edit/todosType
+        // note/edit/urlType
+        // note/edit/noteId
+
+        const { noteType } = this.props.match.params
+        if (!noteType) return
+
+        const type = this.getType(noteType)
+        if (type === undefined) {
+            NoteService.getById(noteType).then(note => this.setState({ note }))
+        } else {
+            this.setState(({ note }) => ({
+                note: {
+                    ...note, type: `${type}`
+                }
+            }))
+        }
+    }
+
+    getType = (noteType) => {
+        switch (noteType) {
+            case 'imgType':
+                return 'note-img'
+            case 'listType':
+                return 'note-todos'
+            case 'urlType':
+                return 'note-url'
+        }
+        return undefined
     }
 
     handleChange = ({ target }) => {
@@ -38,6 +71,7 @@ export class NoteEdit extends React.Component {
 
     onSaveNote = (ev) => {
         ev.preventDefault()
+
         NoteService.save(this.state.note)
             .then(() => {
                 console.log(this.props)
@@ -88,13 +122,26 @@ export class NoteEdit extends React.Component {
                 console.error(err)
             })
     }
-    
+
     render() {
         console.log('state:', this.state)
-        const { title, txt , url } = this.state.note.info
+        const { note } = this.state
+        const { title, txt, url } = this.state.note.info
+        const { type } = this.state.note
+        const style = note.style ? note.style : {}
+        const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "white"
+
         const { onSaveNote, handleChange, onImgInput } = this
-        return <div className="edit-note-modal flex column">
-            {(url)&& <img className="edit-modal-img" src={`${url}`} alt="" />}
+        
+        return <div className="edit-note-modal flex column" style={{ backgroundColor: backgroundColor }} >
+            {(url !== undefined) && <img className="edit-modal-img" src={`${url}`} alt="" />}
+            {(type === 'note-img' && url === undefined) && <label  className="select-img-label" htmlFor="imgInputTag">
+                Select Image
+                <br />
+                <i className="fa-solid fa-camera"></i>
+            </label>}
+
+            {(type === 'note-todos')&& <TodosPreview onSaveNote={onSaveNote} note={note}/>}
 
             <form className="flex column" onSubmit={onSaveNote} id="save-note">
                 <input className="title-input" type="text" name="title"
@@ -118,9 +165,10 @@ export class NoteEdit extends React.Component {
                 <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
                     <i className="fa-regular fa-image"></i>
                 </button>
-                <input type="file" className="file-input-btn" name="image" onChange={onImgInput} accept=".png, .jpg, .jpeg" />
+                <input id="imgInputTag" type="file" className="file-input-btn" name="image"
+                 onChange={onImgInput} accept=".png, .jpg, .jpeg" style={{display: 'none'}} />
                 <button className="btn-save" data-tooltip-text="Save" tabIndex="1" form="save-note">
-                    +
+                    save
                 </button>
             </div>
         </div>

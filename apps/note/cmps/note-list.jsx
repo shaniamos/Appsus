@@ -4,7 +4,7 @@ const { Link } = ReactRouterDOM
 
 export class NoteList extends React.Component {
 
-
+    
 
     render() {
         const { onRemoveNote } = this.props
@@ -15,8 +15,14 @@ export class NoteList extends React.Component {
                     notes.map((note, idx) => {
                         const style = note.style ? note.style : {}
                         const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "transparent"
+                        const { title, txt, url } = note.info
+
                         return <Link to={`/note/edit/${note.id}`} key={note.id} className="note-li">
                             <li className="note-preview" style={{ backgroundColor: backgroundColor }}>
+                                {(url !== undefined) && <img className="edit-modal-img" src={`${url}`} alt="" />}
+                                {(title) && <h1 className="preview-title" >{title}</h1>}
+                                {(txt) && <pre className="preview-text" >{`${txt}`}</pre>}
+                                
                                 <NotePreview note={note} />
                                 <PreviewToolbar noteId={note.id} onRemoveNote={onRemoveNote} />
                             </li>
@@ -28,60 +34,3 @@ export class NoteList extends React.Component {
         </section>
     }
 }
-
-/*
-pin 
-<i class="fa-solid fa-thumbtack"></i>
-
-remind me
-<i class="fa-regular fa-bell"></i>
-
-collaborator
-<i class="fa-solid fa-user-plus"></i>
-
-background option
-<i class="fa-solid fa-palette"></i>
-
-add image
-<i class="fa-regular fa-image"></i>
-
-archive 
-<i class="fa-solid fa-box-archive"></i>
-
-
-new list 
-<i class="fa-regular fa-square-check"></i>
-
-new note with drawing 
-<i class="fa-solid fa-paintbrush"></i>
-
-More 
-<i class="fa-solid fa-ellipsis-vertical"></i>
-
-redu
-<i class="fa-solid fa-rotate-right"></i>
-
-undu
-<i class="fa-solid fa-rotate-left"></i>
-
-drag 
-<i class="fa-solid fa-grip-vertical"></i>
-
-
-nav
-
-Notes
-<i class="fa-regular fa-lightbulb"></i>
-
-Reminders
-<i class="fa-regular fa-bell"></i>
-
-Edit labels
-<i class="fa-solid fa-pencil"></i>
-
-Archive
-<i class="fa-solid fa-box-archive"></i>
-
-Bin
-<i class="fa-solid fa-trash-can"></i>
-*/
