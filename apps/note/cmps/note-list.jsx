@@ -5,7 +5,6 @@ const { Link } = ReactRouterDOM
 export class NoteList extends React.Component {
 
 
-
     render() {
         const { onRemoveNote } = this.props
         const { notes } = this.props

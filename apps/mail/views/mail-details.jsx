@@ -29,7 +29,6 @@ export class MailDetails extends React.Component {
         const { mail } = this.state
         const {openCompose, onChangeView} = this
         // console.log(mail);
-
         return (
             <section className="mail-details-container flex">
                 <SideBar openCompose={openCompose} onChangeView={onChangeView} />
@@ -42,18 +41,10 @@ export class MailDetails extends React.Component {
                     <div className="mail-details-sender">
                         <h1>Sender: {mail.sender}</h1><hr />
                     </div>
-                    <p className="details-body">{mail.body}</p>
+                    <pre className="details-body">{mail.body}</pre>
 
                     <button className="back-btn" onClick={() => this.props.history.push('/mail')}><i className="fas fa-arrow-left"></i> Back</button>
                 </div>
-
-
-
-
-
-
-
-
             </section>
         )
     }

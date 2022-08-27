@@ -97,6 +97,8 @@ export class NoteEdit extends React.Component {
             })
     }
 
+    
+
     onImgInput = (ev) => {
         var reader = new FileReader()
         reader.readAsDataURL(ev.target.files[0])
@@ -128,11 +130,12 @@ export class NoteEdit extends React.Component {
                 console.error(err)
             })
     }
-    
+
     render() {
         const { note } = this.state
         const { title, txt, url } = this.state.note.info
         const { type } = this.state.note
+        const { onRemoveNote } = this.props
         const style = note.style ? note.style : {}
         const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "white"
         console.log('state:', this.state)
@@ -171,8 +174,6 @@ export class NoteEdit extends React.Component {
 
                 </button>
 
-
-
                 <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
                     <label className="btn-add-image" htmlFor="imgInputTag">
                         <i className="fa-regular fa-image"></i>
@@ -181,6 +182,13 @@ export class NoteEdit extends React.Component {
 
                 <input id="imgInputTag" type="file" className="file-input-btn" name="image"
                     onChange={onImgInput} accept=".png, .jpg, .jpeg" style={{ display: 'none' }} />
+
+                <button className="" data-tooltip-text="DeleteNote" tabIndex="1" onClick={(event) => {
+                    onRemoveNote(event, note.id)
+                    this.props.history.push('/note')
+                }}>
+                    <i className="fa-solid fa-trash-can"></i>
+                </button>
 
                 <button className="btn-save" data-tooltip-text="Save" tabIndex="1" form="save-note">
                     <img src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="" />

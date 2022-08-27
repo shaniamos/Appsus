@@ -40,6 +40,7 @@ export class NoteIndex extends React.Component {
             })
     }
 
+
     render() {
         const { notes } = this.state
         const { onRemoveNote, loadNotes , } = this
@@ -68,7 +69,7 @@ export class NoteIndex extends React.Component {
                 <NoteList notes={notes} onRemoveNote={onRemoveNote} />
             </div>
             <section>
-                <Route exact path="/note/edit/:noteType?" render={(props) => <NoteEdit loadNotes={loadNotes} {...props} />} />
+                <Route exact path="/note/edit/:noteType?" render={(props) => <NoteEdit loadNotes={loadNotes} onRemoveNote={onRemoveNote} {...props} />} />
             </section>
         </section>
 

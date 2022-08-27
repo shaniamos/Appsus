@@ -26,8 +26,6 @@ export class TodosList extends React.Component {
         console.log(this.state.todos)
         const { onToggleTodo, onRemoveTodo } = this
         return <div className="todos-preview">
-            {(title) && <h1 className="preview-title" >{title}</h1>}
-            {(txt) && <pre className="preview-text" >{`${txt}`}</pre>}
             <ul className="todos-list">
                 {
                     todos.map((todo, idx) => {

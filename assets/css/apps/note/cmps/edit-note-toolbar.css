@@ -1,3 +1,7 @@
+.edit-toolbar {
+    height: 50px;
+    padding-inline: 10px;
+}
 .edit-toolbar button {
     border: none;
     background-color: transparent;

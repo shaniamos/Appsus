@@ -34,7 +34,10 @@ export class MailCompose extends React.Component {
           <div className="compse-header">
             <label>New Message</label>
             <div>
-              <button className="to-drafts-btn" onClick={() => this.onMoveToDrafts()} ><i className="fas fa-times"></i></button>
+              <button className="to-drafts-btn" 
+              onClick={() => {
+                this.onMoveToDrafts()
+                this.props.history.push('/mail')}} ><i className="fas fa-times"></i></button>
             </div>
           </div>
         <form onSubmit={onSubmitCompose}>

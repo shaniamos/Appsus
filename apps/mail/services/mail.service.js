@@ -15,8 +15,10 @@ export const mailService = {
 }
 
 var gMails = [
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Sharon Bril', subject: 'about the project', body: 'Hey i would be happy to see your projects' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'ShanAmos@gmail.com', subject: 'Hey Bar', body: 'See you tonight' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Sharon Bril', subject: 'about the project',
+     body: `Hey, I would be happy to
+see your projects` },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'ShanAmos@gmail.com', subject: 'Hey Bar', body: `See you tonight` },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Dror Mendel', subject: 'Hello my son', body: 'When are you come home to visist us?' },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Yahav', subject: 'Payment', body: 'I saw your transfer in my account' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Amazon.com', subject: 'Arriving soon!', body: 'Your delivery is on the way and will contact you tomorrow' },
