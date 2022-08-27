@@ -31,12 +31,12 @@ export class MailCompose extends React.Component {
     return (
       <section className="mail-compose">
 
-          <div className="compse-header">
-            <label>New Message</label>
-            <div>
-              <button className="to-drafts-btn" onClick={() => this.onMoveToDrafts()} ><i className="fas fa-times"></i></button>
-            </div>
+        <div className="compse-header">
+          <label>New Message</label>
+          <div>
+            <button className="to-drafts-btn" onClick={() => this.onMoveToDrafts()} ><i className="fas fa-times"></i></button>
           </div>
+        </div>
         <form onSubmit={onSubmitCompose}>
 
 
@@ -64,9 +64,9 @@ export class MailCompose extends React.Component {
           </div>
 
           <div className="compose-footer">
-            <button type="submit" title="Send">Send</button>
+            <button className="send-mail-btn btn" type="submit" title="Send">Send</button>
 
-        <button onClick={() => this.props.onCloseCompose()} title="Send">exit</button>
+            <button className="exit-compose-btn btn fa-solid fa-trash-can" onClick={() => this.props.onCloseCompose()} title="Exit"></button>
           </div>
         </form>
       </section>

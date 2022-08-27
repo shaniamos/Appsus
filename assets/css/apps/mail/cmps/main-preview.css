@@ -7,22 +7,7 @@
 }
 
 
-.mail-preview .subject-body-preview p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 35ch;
-    padding-left: 8px;
-   
-}
 
-.mail-preview .subject-body-preview h3  {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 15ch;
-   
-}
 /* .mail-preview .subject-body-preview > *{
     flex-grow: 1;
 } */

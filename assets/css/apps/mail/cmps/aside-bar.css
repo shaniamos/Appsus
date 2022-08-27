@@ -1,9 +1,4 @@
-.aside-bar {
-    height:100vh;
-    width: 14.4rem;
-    border-right: 1px solid #ccc;
-    background-color: #f4fafbad; 
-}
+
 
 .aside-bar-content {
     height: 40%;
@@ -11,6 +6,13 @@
     padding-right: 10px;
     color: rgb(90, 90, 90);
     align-items: center;
+}
+
+.aside-main-nav {
+    text-align: center;
+    width: 100%;
+    height: 70%;
+    font-size: 1.2rem;
 }
 
 .compose-btn {
@@ -37,12 +39,6 @@
     width: 20%;
 }
 
-.aside-main-nav {
-    text-align: center;
-    width: 100%;
-    height: 70%;
-    font-size: 1.2rem;
-}
 .aside-main-nav>* {
     display: flex;
     justify-content: space-evenly;

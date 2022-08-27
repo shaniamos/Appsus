@@ -1,13 +1,11 @@
 /* SMALL */
 
-@media (max-width: 700px) {
-    .main-layout>*:not(.full) {
-        max-width: 650px;
-        margin-inline-end: auto;
-        margin-inline-start: auto;
-    }
+@media (max-width: 740px) {
 
-    .app-header {}
+    .main-mail-index {
+        min-width: 640px;
+        justify-content: space-between;
+    }
 
     .main-nav {
         position: fixed;
@@ -40,81 +38,177 @@
 
     .radio-sort {
         /* display: none; */
-        
-    }
-    .mail-list {
-        width: 500px;
+
     }
 
-    .mails-container {
-        font-size: 14px;
-        width: 80%;
+    .mail-list .mail-preview {
+        width: 450px;
     }
 
-    .mail-filter-search input { 
+    .main-mail-index .mails-container {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .mail-filter-search input {
         font-size: 1rem;
-        width: 200px;
+        width: 180px;
     }
-    
+
     .aside-bar {
         /* font-size: 1rem; */
-        width: 9.06rem;
+        /* width: 5rem; */
         justify-content: start;
-    }
-    
-    .aside-bar-content {
-        width:  6rem;
-        padding: 1px;;
-    }
-    
-    .mails-container .mail-preview {
-        height: 80px;
-        
-    }
-    
-    .compose-btn.btn{
-        font-size: 15px;
+        left: 0;
+
+        height: 100vh;
         width: 6rem;
+        border-right: 1px solid #ccc;
+        background-color: #f4fafbad;
+
+    }
+
+    .aside-bar-content {
+        /* width:  6rem; */
+        padding-right: 1px;
+        padding-left: 1px;
+    }
+
+    .mails-container .mail-preview {
+        height: 90px;
+
+    }
+
+    .compose-btn.btn {
+        font-size: 14px;
+        width: 5rem;
         margin: 15px 5px 5px 5px;
     }
-    
+
     .aside-main-nav>* {
-        font-size: 1rem;
+        font-size: .9rem;
         justify-content: start;
 
     }
 
     .mail-preview .subject-body-preview h3 {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 6ch;
+        font-size: 14px;
+        padding-left: 5px;
+    }
+
+    .mail-preview .subject-body-preview p {
+        font-size: 14px;
+        /* white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 8ch;
+     padding-left: 8px;  */
+    }
+
+}
+
+.aside-main-nav {
+    text-align: center;
+    width: 100%;
+    height: 70%;
+    font-size: 1.2rem;
+}
+
+
+
+/* MEDIUM  */
+
+@media (min-width: 740px) {
+
+    .toggle-menu {
+        display: none;
+    }
+
+    .main-mail-index {
+        min-width: 730px;
+        justify-content: space-between;
     }
 
     .mail-preview .subject-body-preview p {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 8ch;
-        /* padding-left: 8px; */
+        max-width: 9ch;
+        padding-left: 8px;
+
     }
 
-}
+    .mail-preview .subject-body-preview h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 14ch;
 
-
-/* MEDIUM  */
-
-@media (min-width: 700px) {
-
-    .toggle-menu {
-        display: none;
     }
+
+    .main-mail-index {
+        min-width: 725px;
+        justify-content: space-between;
+    }
+
+    .aside-bar {
+        height: 100vh;
+        width: 11rem;
+        border-right: 1px solid #ccc;
+        background-color: #f4fafbad;
+    }
+
+
+    .compose-btn.btn {
+        font-size: 1.1rem;
+        width: 9rem;
+        margin: 15px 5px 5px 5px;
+    }
+
+
+
+
 }
 
 /* LARGE  */
 
-@media (min-width: 800px) {
+@media (min-width: 960px) {
     .toggle-menu {
         display: none;
     }
+
+    .mail-preview .subject-body-preview p {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 30ch;
+        padding-left: 8px;
+
+    }
+
+    .mail-preview .subject-body-preview h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 20ch;
+
+    }
+
+    .aside-bar {
+        height: 100vh;
+        width: 14rem;
+        border-right: 1px solid #ccc;
+        background-color: #f4fafbad;
+    }
+
+
+    .compose-btn.btn {
+        font-size: 1.2rem;
+        width: 10rem;
+        margin: 15px 5px 5px 5px;
+    }
+
+
+
+
 }

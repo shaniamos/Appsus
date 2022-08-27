@@ -1,5 +1,5 @@
 .mail-compose {
-    
+
     background-color: rgb(255, 255, 255);
     z-index: 6;
     position: fixed;
@@ -41,7 +41,7 @@
     outline: none;
     border: none;
     width: 95%;
-    border-bottom: 1px solid rgb(216, 216, 216) ;
+    border-bottom: 1px solid rgb(216, 216, 216);
     padding: 1rem;
 }
 
@@ -51,5 +51,44 @@
     width: 95%;
     /* border-bottom: 1px solid rgb(216, 216, 216) ; */
     padding: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+}
+
+.compose-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.send-mail-btn {
+    background-color: #0b57d0;
+    color: aliceblue;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    border-radius: 18px;
+    max-width: 104px;
+    min-width: 72px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    height: 1.7rem;
+    transition: background-color .2s;
+
+}
+
+.send-mail-btn:hover {
+    background-color: #1a73e8;
+}
+
+
+.exit-compose-btn {
+    background-color: white;
+    border: none;
+    height: 20px;
+    opacity: .71;
+    width: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size:large;
+    cursor: pointer;
+
 }
