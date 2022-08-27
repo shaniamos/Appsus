@@ -1,11 +1,11 @@
 
 const { Link } = ReactRouterDOM
 
-export function MailPreview({ mail, onDeleteMail, changeIsStarred, onChangeBold }) {
+export function MailPreview({ mail, onDeleteMail, changeIsStarred, onChangeBold, moveToNotes }) {
 
     // console.log('mail', mail.);
 
-    return <Link to={`/mail/${mail.id}`}>
+    return <Link to={`/mail/details/${mail.id}`}>
         <section className={`mail-preview flex align-center ${mail.isRead? 'readen' : 'bold'}` }>
             <div className="flex">
                 <button className="star-btn" onClick={(ev) => {
@@ -27,6 +27,12 @@ export function MailPreview({ mail, onDeleteMail, changeIsStarred, onChangeBold 
             <button className="delete-mail-btn btn fas fa-trash" onClick={(ev) => {
                 ev.preventDefault()
                 onDeleteMail(mail.id)
+            }}>
+            </button>
+
+            <button className="delete-mail-btn btn fas fa-paper-plane" onClick={(ev) => {
+                ev.preventDefault()
+                moveToNotes(mail)
             }}>
             </button>
 

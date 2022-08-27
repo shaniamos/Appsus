@@ -1,6 +1,6 @@
 import { NoteService } from "../services/note.service.js"
 import { NoteNav } from "./note-nav.jsx"
-import { TodosPreview } from "./todos-preview.jsx"
+import { TodosList } from "./todos-list.jsx"
 
 export class NoteEdit extends React.Component {
 
@@ -20,16 +20,10 @@ export class NoteEdit extends React.Component {
         this.loadNote()
         const { type } = this.state.note
         const { url } = this.state.note.info
-        console.log(type , url)
+        console.log(type, url)
     }
 
     loadNote = () => {
-        // note/edit/
-        // note/edit/imgType
-        // note/edit/todosType
-        // note/edit/urlType
-        // note/edit/noteId
-
         const { noteType } = this.props.match.params
         if (!noteType) return
 
@@ -69,6 +63,18 @@ export class NoteEdit extends React.Component {
         }))
     }
 
+    handleStyleChange = ({ target }) => {
+        const field = target.name
+        const value = target.value
+        this.setState(({ note }) => ({
+            note: {
+                ...note, style: {
+                    ...note.info, [field]: value
+                }
+            }
+        }))
+    }
+
     onSaveNote = (ev) => {
         ev.preventDefault()
 
@@ -90,6 +96,8 @@ export class NoteEdit extends React.Component {
                 this.props.history.push('/note')
             })
     }
+
+    
 
     onImgInput = (ev) => {
         var reader = new FileReader()
@@ -124,24 +132,24 @@ export class NoteEdit extends React.Component {
     }
 
     render() {
-        console.log('state:', this.state)
         const { note } = this.state
         const { title, txt, url } = this.state.note.info
         const { type } = this.state.note
+        const { onRemoveNote } = this.props
         const style = note.style ? note.style : {}
         const backgroundColor = (style.backgroundColor) ? style.backgroundColor : "white"
+        console.log('state:', this.state)
+        const { onSaveNote, handleChange, onImgInput, handleStyleChange } = this
 
-        const { onSaveNote, handleChange, onImgInput } = this
-        
         return <div className="edit-note-modal flex column" style={{ backgroundColor: backgroundColor }} >
             {(url !== undefined) && <img className="edit-modal-img" src={`${url}`} alt="" />}
-            {(type === 'note-img' && url === undefined) && <label  className="select-img-label" htmlFor="imgInputTag">
+            {(type === 'note-img' && url === undefined) && <label className="select-img-label" htmlFor="imgInputTag">
                 Select Image
                 <br />
                 <i className="fa-solid fa-camera"></i>
             </label>}
 
-            {(type === 'note-todos')&& <TodosPreview onSaveNote={onSaveNote} note={note}/>}
+            {(type === 'note-todos') && <TodosList onSaveNote={onSaveNote} note={note} />}
 
             <form className="flex column" onSubmit={onSaveNote} id="save-note">
                 <input className="title-input" type="text" name="title"
@@ -150,25 +158,40 @@ export class NoteEdit extends React.Component {
                     onChange={handleChange} />
 
                 <textarea className="txt-input" type="text" name="txt"
-                    value={txt} id="txt" cols="5"
+                    value={txt} id="txt"
                     placeholder="Take a note..."
                     onChange={handleChange} />
             </form>
 
             <div className="edit-toolbar">
-                <button className="btn-create-list" data-tooltip-text="NewList" tabIndex="1">
-                    <i className="fa-regular fa-square-check"></i>
+
+                <button className="btn-background-color" data-tooltip-text="BackgroundOption" tabIndex="1">
+                    <label className="" htmlFor="backgroundColor">
+                        <i className="fa-solid fa-palette"></i>
+                        <input className="color-input" type="color" name="backgroundColor"
+                            id="backgroundColor" onChange={handleStyleChange} style={{ display: 'none' }} />
+                    </label>
+
                 </button>
-                <button className="btn-create-draw" data-tooltip-text="NewNoteWithDrawing" tabIndex="1">
-                    <i className="fa-solid fa-paintbrush"></i>
-                </button>
+
                 <button className="btn-create-image" data-tooltip-text="NewNoteWithImage" tabIndex="1">
-                    <i className="fa-regular fa-image"></i>
+                    <label className="btn-add-image" htmlFor="imgInputTag">
+                        <i className="fa-regular fa-image"></i>
+                    </label>
                 </button>
+
                 <input id="imgInputTag" type="file" className="file-input-btn" name="image"
-                 onChange={onImgInput} accept=".png, .jpg, .jpeg" style={{display: 'none'}} />
+                    onChange={onImgInput} accept=".png, .jpg, .jpeg" style={{ display: 'none' }} />
+
+                <button className="" data-tooltip-text="DeleteNote" tabIndex="1" onClick={(event) => {
+                    onRemoveNote(event, note.id)
+                    this.props.history.push('/note')
+                }}>
+                    <i className="fa-solid fa-trash-can"></i>
+                </button>
+
                 <button className="btn-save" data-tooltip-text="Save" tabIndex="1" form="save-note">
-                    save
+                    <img src="https://www.gstatic.com/images/icons/material/colored_icons/1x/create_32dp.png" alt="" />
                 </button>
             </div>
         </div>

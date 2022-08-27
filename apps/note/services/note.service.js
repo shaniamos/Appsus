@@ -15,7 +15,7 @@ function query(filterBy) {
         notes = _createNotes()
         _saveToStorage(notes)
     }
-    
+
     if (filterBy) {
         let { vendor, minSpeed, maxSpeed } = filterBy
         if (!minSpeed) minSpeed = 0;
@@ -24,7 +24,7 @@ function query(filterBy) {
             note.vendor.includes(vendor) &&
             note.speed >= minSpeed &&
             note.speed <= maxSpeed
-            ))
+        ))
     }
     return Promise.resolve(notes)
 }
@@ -87,6 +87,7 @@ watching new`
             type: "note-txt",
             isPinned: true,
             info: {
+                url: "http://ca-upload.com/here/img/630a1918bb9f2.jpg",
                 title: "To Live Longer!",
                 txt: `
 Have plenty of sleep,
@@ -103,9 +104,9 @@ Exercise`
             id: "n103",
             type: "note-img",
             info: {
-                url: "http://coding-academy.org/books-photos/20.jpg",
+                url: "http://coding-academy.org/books-photos/16.jpg",
                 title: "Bobi and Me",
-                txt: "Sent photos from the zoo to Harry"
+                txt: "Sent photos from the Zoo"
             },
             style: {
                 backgroundColor: "#FFFFFF"
@@ -115,13 +116,29 @@ Exercise`
             id: "n104",
             type: "note-todos",
             info: {
-                label: "Get my stuff together",
+                title: "TODO LIST",
                 todos: [
                     { txt: "Discuss new project with team", doneAt: null },
-                    { txt: "Coding power", doneAt: 187111111 },
                     { txt: "Write a blog about new trends", doneAt: 187111111 },
                     { txt: "Coding power", doneAt: 187111111 },
                 ]
+            }
+        },
+        {
+            id: "n108",
+            type: "note-todos",
+            info: {
+                url: "http://ca-upload.com/here/img/630a1803b8eb6.jpg",
+                title: "Taking care of my dog",
+                todos: [
+                    { txt: "always keep fresh water available", doneAt: null },
+                    { txt: "provide ample opportunities to exercise", doneAt: 187111111 },
+                    { txt: "practive reproductive control", doneAt: 187111111 },
+                    { txt: "dental care is very important", doneAt: 187111111 },
+                ]
+            },
+            style: {
+                backgroundColor: "#DB4437"
             }
         },
         {
@@ -138,19 +155,23 @@ Exercise`
             type: "note-txt",
             isPinned: true,
             info: {
-                title: "Titelooo",
-                txt: "Fullstack Me Baby!"
+                title: "Call my grandma",
             },
             style: {
-                backgroundColor: "#EA4335"
+                backgroundColor: "#E74335"
             }
         },
         {
             id: "n107",
-            type: "note-img",
+            type: "note-todos",
             info: {
                 url: "http://coding-academy.org/books-photos/14.jpg",
                 title: "Read a book",
+                todos: [
+                    { txt: "The Secret Pulse of Time", doneAt: null },
+                    { txt: "Stolen Focus", doneAt: null },
+                    { txt: "Seveneves", doneAt: null },
+                ],
             },
             style: {
                 backgroundColor: "#439854"

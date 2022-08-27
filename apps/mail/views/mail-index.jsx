@@ -4,6 +4,8 @@ import { MailFilter } from "../cmps/mail-filter.jsx"
 import { MailList } from "../cmps/mail-list.jsx"
 import { mailService } from "../services/mail.service.js"
 import { MailCompose } from "../cmps/mail-compose.jsx"
+import { NoteService } from "../../note/services/note.service.js"
+const { Route, Link } = ReactRouterDOM
 
 export class MailIndex extends React.Component {
 
@@ -38,7 +40,7 @@ export class MailIndex extends React.Component {
         this.setState({ isComposeShown: true })
         // console.log(this.state);
     }
-    
+
     closeCompose = () => {
         this.setState({ isComposeShown: false })
         // console.log(this.state);
@@ -56,7 +58,7 @@ export class MailIndex extends React.Component {
 
     changeIsStarred = (mailId) => {
         mailService.changeStarColor(mailId)
-        .then(() => this.loadMails()) 
+            .then(() => this.loadMails())
     }
 
     moveToDrafts = (draftMail) => {
@@ -65,23 +67,39 @@ export class MailIndex extends React.Component {
         mailService.moveToDraftMails(draftMail)
             .then(() => {
                 console.log('Moved to draft');
-            this.loadMails()
+                this.loadMails()
+            })
+    }
+
+    moveToNotes = (mailToNote) => {
+        const note = {
+            id: "",
+            type: "note-txt",
+            isPinned: false,
+            info: {
+                title: mailToNote.subject,
+                txt: mailToNote.body
+            },
+        }
+        NoteService.save(note)
+            .then((note) => {
+                this.props.history.push(`/note/edit/${note.id}`)
             })
     }
 
     onSendCompose = (newMail) => {
         this.closeCompose()
         mailService.sendMail(newMail)
-        .then(() => {
-            console.log('Sent email');
-            this.loadMails()
-        })
+            .then(() => {
+                console.log('Sent email');
+                this.loadMails()
+            })
     }
-    
+
     onChangeView = (val) => {
         this.setState({ mailType: val })
     }
-    
+
     mailsToShow() {
         const currMails = this.state.mails
         let mailsToShow = currMails.filter(mail => mail.type === this.state.mailType)
@@ -101,14 +119,14 @@ export class MailIndex extends React.Component {
         console.log('mailId', mailId);
         mailService.changeBold(mailId)
             .then(() => {
-            console.log('text bold changed!');
-            this.loadMails()
-        })
+                console.log('text bold changed!');
+                this.loadMails()
+            })
     }
 
     render() {
-        const { onDeleteMail, changeIsStarred, onSendCompose, onSetFilter ,onChangeView, moveToDrafts, onChangeBold } = this
-        const  mails  = this.mailsToShow()
+        const { onDeleteMail, changeIsStarred, onSendCompose, onSetFilter, onChangeView, moveToDrafts, onChangeBold, moveToNotes } = this
+        const mails = this.mailsToShow()
         // console.log('mails', mails)
 
         if (!mails) return <h2> loading...</h2>
@@ -116,11 +134,20 @@ export class MailIndex extends React.Component {
             <SideBar openCompose={this.openCompose} onChangeView={onChangeView} />
             <div className="mails-container">
                 <MailFilter onSetFilter={onSetFilter} />
-                < MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} onChangeBold={onChangeBold} />
-                {this.state.isComposeShown &&  <MailCompose 
-                onCloseCompose={this.closeCompose} 
-                onSendCompose={onSendCompose}
-                moveToDrafts={moveToDrafts} />}
+                < MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} onChangeBold={onChangeBold} moveToNotes={moveToNotes} />
+                {/* {this.state.isComposeShown &&
+                    <MailCompose
+                        onCloseCompose={this.closeCompose}
+                        onSendCompose={onSendCompose}
+                        moveToDrafts={moveToDrafts} />
+                } */}
+
+                <Route exact path="/mail/edit/"
+                    render={(props) => <MailCompose
+                        onCloseCompose={this.closeCompose}
+                        onSendCompose={onSendCompose}
+                        moveToDrafts={moveToDrafts} {...props} />} />
+
             </div>
         </section>
     }

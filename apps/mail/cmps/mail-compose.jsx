@@ -31,37 +31,40 @@ export class MailCompose extends React.Component {
     return (
       <section className="mail-compose">
 
-        <div className="compse-header">
-          <label>New Message</label>
-          <div>
-            <button className="to-drafts-btn" onClick={() => this.onMoveToDrafts()} ><i className="fas fa-times"></i></button>
+          <div className="compse-header">
+            <label>New Message</label>
+            <div>
+              <button className="to-drafts-btn" 
+              onClick={() => {
+                this.onMoveToDrafts()
+                this.props.history.push('/mail')}} ><i className="fas fa-times"></i></button>
+            </div>
           </div>
-        </div>
         <form onSubmit={onSubmitCompose}>
 
 
-          <div className="compose-address ">
-            <input type="mail"
-              name="to"
-              placeholder="To"
-              onChange={onInputChange} />
-          </div>
+            <div className="compose-address ">
+              <input type="mail"
+                name="to"
+                placeholder="To"
+                onChange={onInputChange} />
+            </div>
 
-          <div className="compose-subject">
-            <input type="text"
-              name="subject"
-              placeholder="Subject"
-              onChange={onInputChange} />
-          </div>
+            <div className="compose-subject">
+              <input type="text"
+                name="subject"
+                placeholder="Subject"
+                onChange={onInputChange} />
+            </div>
 
-          <div className="compose-body">
-            <textarea value={this.state.newMail.body}
-              rows="15"
-              type="text"
-              name="body"
-              placeholder="What's on your mind?"
-              onChange={onInputChange} />
-          </div>
+            <div className="compose-body">
+              <textarea value={this.state.newMail.body}
+                rows="15"
+                type="text"
+                name="body"
+                placeholder="What's on your mind?"
+                onChange={onInputChange} />
+            </div>
 
           <div className="compose-footer">
             <button className="send-mail-btn btn" type="submit" title="Send">Send</button>
@@ -69,6 +72,8 @@ export class MailCompose extends React.Component {
             <button className="exit-compose-btn btn fa-solid fa-trash-can" onClick={() => this.props.onCloseCompose()} title="Exit"></button>
           </div>
         </form>
+          </div>
+
       </section>
     )
   }

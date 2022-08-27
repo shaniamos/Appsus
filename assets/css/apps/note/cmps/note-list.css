@@ -1,8 +1,25 @@
+.note-list>* {
+    margin-inline: auto;
+}
+
 .preview-list {
-    -webkit-columns: 250px;
-    -moz-columns: 250px;
-    columns: 250px;
-    /* column-gap: 2em; */
-    /* column-fill: auto; */
-    /* height: 60vh; */
+    /* column-count: 4;
+
+    columns: 5;
+    column-gap: 2em;
+    column-fill: auto;*/
+    column-width: 250px; 
+    /* -webkit-column-count: 5;
+    -moz-column-count: 5; 
+    column-count: 5;
+    -webkit-column-gap: .5rem; 
+    -moz-column-gap: .5rem;
+    column-gap: .5rem; 
+    height: 100vh;    */
+    overflow: scroll;
+}
+.preview-list>* {
+    width: calc(100% / 1);
+    /* -webkit-column-break-after: avoid;
+    -moz-column-break-after: avoid; */
 }
