@@ -72,7 +72,7 @@ export class MailCompose extends React.Component {
             <button className="exit-compose-btn btn fa-solid fa-trash-can" onClick={() => this.props.onCloseCompose()} title="Exit"></button>
           </div>
         </form>
-          </div>
+          
 
       </section>
     )
