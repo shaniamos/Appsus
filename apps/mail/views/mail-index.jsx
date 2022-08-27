@@ -44,7 +44,6 @@ export class MailIndex extends React.Component {
         // console.log(this.state);
     }
 
-
     onDeleteMail = (mailId) => {
         // console.log('mailId', mailId);
         mailService.deleteMail(mailId)
@@ -70,7 +69,6 @@ export class MailIndex extends React.Component {
             })
     }
 
-    
     onSendCompose = (newMail) => {
         this.closeCompose()
         mailService.sendMail(newMail)
@@ -84,7 +82,6 @@ export class MailIndex extends React.Component {
         this.setState({ mailType: val })
     }
     
-    
     mailsToShow() {
         const currMails = this.state.mails
         let mailsToShow = currMails.filter(mail => mail.type === this.state.mailType)
@@ -92,7 +89,7 @@ export class MailIndex extends React.Component {
         let mails = mailsToShow.filter(mail => mail.sender.toLowerCase().includes(this.state.filterByName.toLowerCase()))
         if (this.state.filterRatio === 'read') {
             mails = mailsToShow.filter(mail => mail.isRead)
-            console.log('mails', mails);
+            // console.log('mails', mails);
         }
         else if (this.state.filterRatio === 'unread') {
             mails = mailsToShow.filter(mail => !mail.isRead)
@@ -100,8 +97,17 @@ export class MailIndex extends React.Component {
         return mails;
     }
 
+    onChangeBold = (mailId) => {
+        console.log('mailId', mailId);
+        mailService.changeBold(mailId)
+            .then(() => {
+            console.log('text bold changed!');
+            this.loadMails()
+        })
+    }
+
     render() {
-        const { onDeleteMail, changeIsStarred, onSendCompose, onSetFilter ,onChangeView, moveToDrafts } = this
+        const { onDeleteMail, changeIsStarred, onSendCompose, onSetFilter ,onChangeView, moveToDrafts, onChangeBold } = this
         const  mails  = this.mailsToShow()
         // console.log('mails', mails)
 
@@ -110,16 +116,12 @@ export class MailIndex extends React.Component {
             <SideBar openCompose={this.openCompose} onChangeView={onChangeView} />
             <div className="mails-container">
                 <MailFilter onSetFilter={onSetFilter} />
-                < MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} />
+                < MailList mails={mails} onDeleteMail={onDeleteMail} changeIsStarred={changeIsStarred} onChangeBold={onChangeBold} />
                 {this.state.isComposeShown &&  <MailCompose 
                 onCloseCompose={this.closeCompose} 
                 onSendCompose={onSendCompose}
                 moveToDrafts={moveToDrafts} />}
             </div>
-
-
-
         </section>
-
     }
 }

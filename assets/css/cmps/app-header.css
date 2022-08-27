@@ -77,3 +77,11 @@ nav a.active {
     pointer-events: none;
 
 }
+
+.toggle-menu {
+    color: #918d8d;
+    font-size: 2rem;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
