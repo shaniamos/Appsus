@@ -19,7 +19,7 @@ export function MailPreview({ mail, onDeleteMail, changeIsStarred, onChangeBold,
                 <div ><h3 className={`send-from-preview ${mail.isRead? 'readen' : 'bold'}`}  onClick={() => onChangeBold(mail.id)}>{mail.sender} </h3></div>
             </div>
             
-              <div className={`subject-body-preview flex ${mail.isRead? 'readen' : 'bold'}`} onClick={() => onChangeBold(mail.id)}>
+              <div className={`subject-body-preview flex  ${mail.isRead? 'readen' : 'bold'}`} onClick={() => onChangeBold(mail.id)}>
                 <div> <h3>{mail.subject} -   </h3></div>
                 <div><p>{mail.body}</p></div>
             </div>

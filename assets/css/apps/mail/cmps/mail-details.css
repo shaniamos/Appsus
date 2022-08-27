@@ -53,3 +53,7 @@
 .back-btn:hover {
     background-color: #ccc;
 }
+
+.mail-details-container .mail-details-sender p {
+    font-size: 18px;
+}

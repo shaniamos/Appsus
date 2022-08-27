@@ -39,7 +39,9 @@ export class MailDetails extends React.Component {
                     </div>
                     <hr />
                     <div className="mail-details-sender">
-                        <h1>Sender: {mail.sender}</h1><hr />
+                        <h1>{mail.sender}  : {mail.mail}</h1>
+                        <p className="to"> to: {mail.to}</p>
+                        <hr />
                     </div>
                     <pre className="details-body">{mail.body}</pre>
 

@@ -18,27 +18,27 @@ var gMails = [
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Sharon Bril', subject: 'about the project',
      body: `Hey, I would be happy to
 see your projects` },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'ShanAmos@gmail.com', subject: 'Hey Bar', body: `See you tonight` },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Dror Mendel', subject: 'Hello my son', body: 'When are you come home to visist us?' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Yahav', subject: 'Payment', body: 'I saw your transfer in my account' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Amazon.com', subject: 'Arriving soon!', body: 'Your delivery is on the way and will contact you tomorrow' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Yahuuuu', subject: 'Faild password', body: 'Please try again later to enter the website' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Google Font', subject: 'You picked very nice fonts', body: 'Use it well' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Walla Shops', subject: 'Box id: 32RG45#', body: 'We got your order' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Coding Academy', subject: 'Sprint 3 review', body: 'You and Shani did very good work and this sprint!' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Afeka College', subject: 'Schedules', body: 'We happy for you to start the third year and computer science' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amdocs.com', subject: 'Interview', body: 'You will have interview next week' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Fireblocks', subject: 'Mail review', body: 'We happy to tell you that you have been accepted into our company!!' },
-    { id: utilService.makeId(), type: 'sent', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'CodingAcademy@code.com', subject: 'Mail review', body: 'We happy to tell you that you have been accepted into our company!!' },
-    { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Yahav Mendel', subject: 'מה קורה יהב?', body: 'Are you going to parents this weekend?' },
-    { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Afeka@s.afeka.ac.il', subject: 'About the summer course', body: 'I woukd like to know how is goinh with the summer course, if the finnal test is difficult?' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Walla Shops', subject: 'Box id: 24DGDD5#', body: 'You will get the box today from the delivery guy' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Applied Matirials', subject: 'Do you want to here more?', body: 'If you intersted in our jobs, just send us a message' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'YahavMendel@gmail.com', subject: 'About this weekend', body: 'yes i will come this weekend, see you!' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amir@Gmail.com', subject: 'React project', body: 'I have work for you in react if you wanna to do it...' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'PayBox', subject: 'A request for a personal string pull has been received', body: 'Hi Bar Mendel, we received your request to withdraw from the personal balance in the application an amount of 2000 ILS' },
-    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Avocode', subject: 'Verify your e-mail to finish signing up for Avocode', body: 'Thank you for choosing Avocode.' },
-    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Udemy', subject: 'Social Authentication Added', body: 'Hi Bar,We take your account security seriously and wanted to update you on a change to your account. A Facebook login was just added to your existing Udemy account.' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Shani Amos',mail: 'Shaniamos@Gmail.com', to: 'me',  subject: 'Hey Bar', body: `See you tonight` },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Dror Mendel',mail: 'Drorme@Gmail.com',to: 'me', subject: 'Hello my son', body: 'When are you come home to visist us?' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Yahav',mail: 'Yahavmend@Gmail.com',to: 'me', subject: 'Payment', body: 'I saw your transfer in my account' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Amazon.com',mail: 'Amazon@Gmail.com',to: 'me', subject: 'Arriving soon!', body: 'Your delivery is on the way and will contact you tomorrow' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Yahuuuu',mail: 'Yahuuuu@Yahuu.com',to: 'me', subject: 'Faild password', body: 'Please try again later to enter the website' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Google Font',mail: 'GoogleFont@Gmail.com',to: 'me', subject: 'You picked very nice fonts', body: 'Use it well' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: true, sentAt: 1551133930534, sender: 'Walla Shops',mail: 'WallaShops@walla.com',to: 'me', subject: 'Box id: 32RG45#', body: 'We got your order' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: true, sentAt: 1551133930534, sender: 'Coding Academy',mail: 'CodingAcademy@code.com',to: 'me', subject: 'Sprint 3 review', body: 'You and Shani did very good work and this sprint!' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Afeka College',mail: 'Afeka@s.afeka.ac.il',to: 'me', subject: 'Schedules', body: 'We happy for you to start the third year and computer science' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amdocs',mail: 'Amdocs.@Gmail.com', subject: 'Interview',to: 'me', body: 'You will have interview next week' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Fireblocks',mail: 'Fireblocks.com', subject: 'Mail review',to: 'me', body: 'We happy to tell you that you have been accepted into our company!!' },
+    { id: utilService.makeId(), type: 'sent', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Bar Mendel', mail: 'Bar1.mendel@gmail.com',to: 'CodingAcademy',subject: 'Mail review', body: 'We happy to tell you that you have been accepted into our company!!' },
+    { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Yahav Mendel',mail: 'Yahavmend@Gmail.com', to: 'me',subject: 'מה קורה יהב?', body: 'Are you going to parents this weekend?' },
+    { id: utilService.makeId(), type: 'draft', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Afeka',mail: 'Afeka@s.afeka.ac.il', to: 'me',subject: 'About the summer course', body: 'I woukd like to know how is goinh with the summer course, if the finnal test is difficult?' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Walla Shops',mail: 'WallaShops@walla.com',to: 'me', subject: 'Box id: 24DGDD5#', body: 'You will get the box today from the delivery guy' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Applied Matirials',mail: 'AppliedMatirials.com', to: 'me',subject: 'Do you want to here more?', body: 'If you intersted in our jobs, just send us a message' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Yahav Mendel',mail: 'Yahavmend@Gmail.com',to: 'me', subject: 'About this weekend', body: 'yes i will come this weekend, see you!' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Amir Arama', mail: 'AmirArama@Gmail.com',to: 'me',subject: 'React project', body: 'I have work for you in react if you wanna to do it...' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'PayBox',mail: 'PayBox@Gmail.com', to: 'me',subject: 'A request for a personal string pull has been received', body: 'Hi Bar Mendel, we received your request to withdraw from the personal balance in the application an amount of 2000 ILS' },
+    { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Avocode',mail: 'Avocode@Gmail.com',to: 'me', subject: 'Verify your e-mail to finish signing up for Avocode', body: 'Thank you for choosing Avocode.' },
+    { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Udemy',mail: 'Udemi@Gmail.com',to: 'me', subject: 'Social Authentication Added', body: 'Hi Bar,We take your account security seriously and wanted to update you on a change to your account. A Facebook login was just added to your existing Udemy account.' },
 
 ]
 
@@ -84,8 +84,10 @@ function sendMail(newMail){
         subject: newMail.subject,
         body: newMail.body,
         isRead: true,
+        mail: 'Bar1.mendel@gmail.com',
+        to: `${newMail.to}@gmail.com`,
         sentAt: new Date(),
-        sender: newMail.to,
+        sender: 'Bar Mendel', 
         isStarred: false,
         type: 'sent',
     }
@@ -104,7 +106,9 @@ function moveToDraftMails(mail){
         body: mail.body,
         isRead: true,
         sentAt: new Date(),
-        sender: mail.to,
+        sender: 'Bar Mendel',
+        mail: 'Bar1.mendel@gmail.com', 
+        to: `${mail.to}@gmail.com`,
         isStarred: false,
         type: 'draft',
     }
@@ -122,6 +126,10 @@ function changeBold(mailId){
     mail.isRead = true
     _saveToStorage(eMails)
     return Promise.resolve()
+
+}
+
+function getNoteAndCompose(){
 
 }
 

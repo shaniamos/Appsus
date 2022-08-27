@@ -1,9 +1,8 @@
  .mail-list {
     overflow: hidden;
     height: 100%;
+    margin-top: 20px;
 } 
-
-
 
 .mail-list li {
     cursor: pointer;

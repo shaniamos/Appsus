@@ -1,5 +1,4 @@
 
-
 .aside-bar-content {
     height: 40%;
     /* width: 80%; */
@@ -8,6 +7,9 @@
     align-items: center;
 }
 
+.aside-bar {
+    border-right: 1px solid rgb(223, 223, 223);
+}
 .aside-main-nav {
     text-align: center;
     width: 100%;
