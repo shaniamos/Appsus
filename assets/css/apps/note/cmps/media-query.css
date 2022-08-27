@@ -1,0 +1,36 @@
+.main-layout>*:not(.full) {
+    max-width: 100%;
+}
+
+@media (max-width: 540px) {
+    .preview-list {
+        
+    }
+}
+
+@media (min-width: 540px) {
+    .preview-list {
+        -webkit-column-count: 2; 
+        -moz-column-count:2; 
+        column-count: 2;
+        height: 200vh;
+    }
+}
+
+@media (min-width: 900px) {
+   
+    .preview-list {
+        -webkit-column-count: 5; /* Chrome, Safari, Opera */
+        -moz-column-count: 5; /* Firefox */
+        column-count: 5;
+        -webkit-column-gap: .5rem; /* Chrome, Safari, Opera */
+        -moz-column-gap: .5rem; /* Firefox */
+        column-gap: .5rem; 
+        height: 100vh;   
+        overflow: scroll;
+    }
+}
+
+@media (min-width: 1020px) {
+    
+}

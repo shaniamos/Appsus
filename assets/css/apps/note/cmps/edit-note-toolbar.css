@@ -1,3 +1,16 @@
+.edit-toolbar button {
+    border: none;
+    background-color: transparent;
+    height: 31px;
+    width: 32px;
+    margin: 0 3px;
+    border-radius: 50%;
+}
+
+.edit-toolbar button:hover {
+    opacity: 0.87;
+    background-color: rgba(95, 99, 104, 0.157);
+}
 
 
 .edit-toolbar .btn-save {
@@ -5,9 +18,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    right: 2px;
+    right: 0px;
     bottom: 3px;
-    background-color: rgb(206, 201, 201);
+    background-color: rgb(248, 241, 241);
     border: none;
     border-radius: 50%;
     width: 36px;

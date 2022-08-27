@@ -1,26 +1,44 @@
-export function TodosList({ todos, onToggleTodo, onRemoveTodo }) {
+export class TodosList extends React.Component {
+    state = {
+        todos: []
+    }
+
+    componentDidMount() {
+        this.setState(this.props.note.info)
+    }
 
     onToggleTodo = (idx) => {
-        const currTodo = todos[idx]
+        const currTodo = this.state.todos[idx]
+        const todos = this.state.todos
         todos[idx].doneAt = (currTodo.doneAt) ? null : Date.now
         this.setState({ todos })
     }
 
-    onRemoveTodo = (ev , todoIdx) => {
+    onRemoveTodo = (ev, todoIdx) => {
         ev.preventDefault()
-        const newTodos = todos.filter((todo, idx) => idx !== todoIdx)
-        this.setState({ newTodos })
+        const todos = this.state.todos.filter((todo, idx) => idx !== todoIdx)
+        this.setState({ todos })
     }
 
-    return <ul className="todos-list">
-        {
-            todos.map((todo, idx) => {
-                return <li key={idx} className="flex" >
-                    <p className={todo.doneAt ? 'done' : ''} onClick={() => onToggleTodo(idx)} >
-                        {todo.txt}
-                    </p>
-                    <button onClick={(event) => onRemoveTodo(event, idx)}>x</button></li>
-            })
-        }
-    </ul>
+    render() {
+        const { title, txt } = this.props.note.info
+        const { todos } = this.state
+        console.log(this.state.todos)
+        const { onToggleTodo, onRemoveTodo } = this
+        return <div className="todos-preview">
+            {(title) && <h1 className="preview-title" >{title}</h1>}
+            {(txt) && <pre className="preview-text" >{`${txt}`}</pre>}
+            <ul className="todos-list">
+                {
+                    todos.map((todo, idx) => {
+                        return <li key={idx} className="flex" >
+                            <p className={todo.doneAt ? 'done' : ''} onClick={() => onToggleTodo(idx)} >
+                                {todo.txt}
+                            </p>
+                            <button onClick={(event) => onRemoveTodo(event, idx)}>x</button></li>
+                    })
+                }
+            </ul>
+        </div>
+    }
 }

@@ -3,7 +3,7 @@ a .note-preview {
     border: 1px solid;
     width: 250px;
     min-height: 60px;
-    margin: 16px;
+    margin-inline: 16px;
     border-radius: 8px;
     padding: 10px;
 
@@ -19,16 +19,11 @@ a .note-preview {
     transition-property: opacity, transform;
 }
 
+
 .note-preview:hover {
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%)
 }
 
-.note-li a{
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
-    break-inside: avoid;
-
-}
 
 
 .preview-title {

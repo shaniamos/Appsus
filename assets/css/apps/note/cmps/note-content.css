@@ -11,12 +11,12 @@
     align-items: center;
 
 
-    width: 600px;
+    width: 70vw;
+    max-width: 600px;
     height: 46px !important;
     border-radius: 8px;
     border-color: #e0e0e0;
     margin: 32px auto 16px auto;
-    /* position: relative; */
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 
     letter-spacing: .00625em;
@@ -27,6 +27,11 @@
     color: rgba(0,0,0,0.702);
     padding-inline: 16px;
     padding-block: 12px;
+}
+
+.note-create p {
+    width: 40vw;
+    max-width: 400px;
 }
 
 

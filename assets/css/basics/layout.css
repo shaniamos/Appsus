@@ -4,11 +4,7 @@
         margin-inline-end: auto;
         margin-inline-start: auto;
     }
-
-    .app-header {
-
-    }
-
+    
     .main-nav {
         position: fixed;
         flex-direction: column;
