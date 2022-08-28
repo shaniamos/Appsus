@@ -7,7 +7,7 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 export function App() {
-    this.props.history.push(`/mail`)
+    // this.props.history.push(`/mail`)
 
 
     return <Router>
