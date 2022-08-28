@@ -91,5 +91,9 @@
     margin-bottom: 10px;
     font-size:large;
     cursor: pointer;
+    transition: color .2s;
+}
 
+.exit-compose-btn:hover {
+    color: #838080;;
 }

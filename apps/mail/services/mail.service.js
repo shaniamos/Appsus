@@ -39,7 +39,6 @@ see your projects` },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'PayBox',mail: 'PayBox@Gmail.com', to: 'me',subject: 'A request for a personal string pull has been received', body: 'Hi Bar Mendel, we received your request to withdraw from the personal balance in the application an amount of 2000 ILS' },
     { id: utilService.makeId(), type: 'arrived', isRead: false, isStarred: false, sentAt: 1551133930534, sender: 'Avocode',mail: 'Avocode@Gmail.com',to: 'me', subject: 'Verify your e-mail to finish signing up for Avocode', body: 'Thank you for choosing Avocode.' },
     { id: utilService.makeId(), type: 'arrived', isRead: true, isStarred: false, sentAt: 1551133930534, sender: 'Udemy',mail: 'Udemi@Gmail.com',to: 'me', subject: 'Social Authentication Added', body: 'Hi Bar,We take your account security seriously and wanted to update you on a change to your account. A Facebook login was just added to your existing Udemy account.' },
-
 ]
 
 function query() {
@@ -117,7 +116,6 @@ function moveToDraftMails(mail){
     eMails.unshift(draftMail)
     _saveToStorage(eMails)
     return Promise.resolve()
-
 }
 
 function changeBold(mailId){
@@ -126,7 +124,6 @@ function changeBold(mailId){
     mail.isRead = true
     _saveToStorage(eMails)
     return Promise.resolve()
-
 }
 
 function getNoteAndCompose(){

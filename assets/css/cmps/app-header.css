@@ -83,16 +83,17 @@ nav a.active {
     font-size: 2rem;
     border: none;
     background-color: white;
-    cursor: pointer;
     flex-grow: 1;
     right: 0;
     text-align: end;
+    
 }
 
 .menu-img {
     width: 25px;
     height: 25px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .main-nav {

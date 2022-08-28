@@ -13,10 +13,11 @@
     padding: 7px;
     outline: none;
     transition: .3s;
+    background-color:rgb(220 230 236 / 64%);
 }
 
 .mail-filter-search input:focus {
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(255, 255, 255);
 }
 .mails-container {
     border-left: 1px solid rgb(236, 234, 234);

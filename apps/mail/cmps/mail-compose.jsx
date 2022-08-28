@@ -30,7 +30,7 @@ export class MailCompose extends React.Component {
   render() {
     const { onInputChange, onSubmitCompose } = this
     const style = {
-      height:'340px',
+      height:'230px',
         resize:'none',
         padding:'9px',
         boxSizing:'border-box',

@@ -13,10 +13,10 @@ export function AppHeader() {
 
         <Link to="/">
             <div className="main-logo">
-                <img src="../assets/img/festisite_google.png" alt="" />
+                <img src="..\assets\img\festisite_google.png" alt="" />
             </div>
         </Link>
-        <button className="toggle-menu" onClick={() => openMenu()}><img className="menu-img" src="../assets/img/menu2.png"></img></button>
+        <button className="toggle-menu" onClick={() => openMenu()}><img className="menu-img"  src="../assets/img/menu2.png"></img></button>
         <div className="main-screen" onClick={() => openMenu()}></div>
 
         <nav className="main-nav">
