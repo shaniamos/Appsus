@@ -7,8 +7,12 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 export function App() {
+    this.props.history.push(`/mail`)
+
+
     return <Router>
         <section className="app">
+            
             <AppHeader />
             <Switch>
                 <Route path="/mail/details/:mailId?" component={MailDetails}  />
